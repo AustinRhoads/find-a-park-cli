@@ -14,7 +14,7 @@ State.make_from_collection(states_array)
 states_names = []
 State.all.each {|x| states_names << x.name}
 
-State.all.each{|state| Scraper.scrape_parks(state.stae_url)}
+Scraper.scrape_parks(State.all.first.state_url)
 #binding.pry
 
 end

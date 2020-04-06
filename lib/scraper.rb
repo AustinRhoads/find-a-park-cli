@@ -14,7 +14,7 @@ class Scraper
       next if state.css('/@alt') == "shape"
       hash = {}
       hash[:name] = state.css('/@alt').text
-      hash[:state_url] = url + state.css('/@href').text 
+      hash[:state_url] = "https://www.nps.gov" + state.css('/@href').text 
       arr << hash
     end
       
