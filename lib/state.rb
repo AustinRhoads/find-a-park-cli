@@ -13,4 +13,8 @@ state_hash.each { |k, v| self.send("#{k}=", v) }
     states_array.each {|state_hash| State.new(state_hash) }
   end
   
+  def self.all
+    @@all
+  end
+  
 end
