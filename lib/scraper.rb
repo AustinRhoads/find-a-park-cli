@@ -7,10 +7,7 @@ class Scraper
   def self.scrape_states(url)
     arr = []
     doc = Nokogiri::HTML(open(url))
-    #states names - doc.css('form option').each {|x| puts x.text}
-    #states name from map -  doc.css('map area/@alt').each   #{|x| puts x.text}
-     #states url - doc.css('map area/@href').each {|x| puts url + x.text}
-      #states url - doc.css('map area/@href').each {|x| puts url + x.text}
+  
       
 
     doc.css('map area').each do |state|
