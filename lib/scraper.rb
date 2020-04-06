@@ -29,7 +29,7 @@ class Scraper
     doc = Nokogiri::HTML(open(url))
     
     #park names - doc.css('ul h3').each {|x| puts x.text}
-    
+    #all park extensions - doc.css('ul h3 a/@href').text
     binding.pry
     
   end
