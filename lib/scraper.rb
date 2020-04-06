@@ -16,6 +16,6 @@ class Scraper
   
 end
 
-url = 'https://www.nps.gov/findapark/index.htm'
+#url = 'https://www.nps.gov/findapark/index.htm'
 
-scrape = Scraper.new (url)
+#scrape = Scraper.new (url)
