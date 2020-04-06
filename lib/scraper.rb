@@ -11,11 +11,12 @@ class Scraper
     #states name from map -  doc.css('map area/@alt').each   #{|x| puts x.text}
      #states url - doc.css('map area/@href').each {|x| puts url + x.text}
       #states url - doc.css('map area/@href').each {|x| puts url + x.text}
-      hash = {}
+      
 
     doc.css('map area').each do |state|
-      hash[:name] = state.css(/@alt).text
-      hash[:state_url] = state.css(/@href).text 
+      hash = {}
+      hash[:name] = state.css('/@alt').text
+      hash[:state_url] = url + state.css('/@href').text 
       arr << hash
     end
       

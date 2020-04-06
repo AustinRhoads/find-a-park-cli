@@ -6,4 +6,4 @@ require_relative "../lib/park.rb"
 
 
 url = 'https://www.nps.gov/findapark/index.htm'
-scrape = Scraper.scrape_states (url)
+scrape = Scraper.scrape_states(url)
