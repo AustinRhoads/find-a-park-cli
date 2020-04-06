@@ -11,13 +11,15 @@ class Scraper
       
 
     doc.css('map area').each do |state|
+      next if state.css('/@alt') == "shape"
       hash = {}
       hash[:name] = state.css('/@alt').text
       hash[:state_url] = url + state.css('/@href').text 
       arr << hash
     end
       
-    binding.pry
+   # binding.pry
+   return arr
   end
   
 end
