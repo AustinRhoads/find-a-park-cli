@@ -1,12 +1,17 @@
+require 'open-uri'
 require 'pry'
 require 'nokogiri'
 
 class Scraper
   
-  def intitialize(url)
+  def initialize(url=nil)
     
-    doc = Nokogir::HTML(open(url))
+    doc = Nokogiri::HTML(open(url).read)
     binding.pry
   end
   
 end
+
+url = 'https://www.nps.gov/findapark/index.html'
+
+scrape = Scraper.new(url)
