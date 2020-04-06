@@ -6,6 +6,7 @@ class State
   
     def initialize(state_hash)
 state_hash.each { |k, v| self.send("#{k}=", v) }
+@parks = []
 @@all << self
   end
   
@@ -15,6 +16,10 @@ state_hash.each { |k, v| self.send("#{k}=", v) }
   
   def self.all
     @@all
+  end
+  
+  def parks
+    @parks
   end
   
 end

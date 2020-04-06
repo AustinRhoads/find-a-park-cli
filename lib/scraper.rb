@@ -18,10 +18,22 @@ class Scraper
       arr << hash
     end
       
-   # binding.pry
+   
    return arr
+   
+   #end of scrape_states
   end
   
+  def self.scrape_parks(url)
+    
+    doc = Nokogiri::HTML(open(url))
+    
+    binding.pry
+    
+  end
+  
+  
+  #end of scraper class
 end
 
 #url = 'https://www.nps.gov/findapark/index.htm'
