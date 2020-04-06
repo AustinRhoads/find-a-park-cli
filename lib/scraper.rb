@@ -7,7 +7,9 @@ class Scraper
   def initialize(url)
     
     doc = Nokogiri::HTML(open(url))
-    #binding.pry
+    #states names - doc.css('form option').each {|x| puts x.text}
+    #states name from map -  doc.css('map area/@alt').each   #{|x| puts x.text}
+    binding.pry
   end
   
 end
