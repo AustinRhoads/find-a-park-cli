@@ -4,14 +4,14 @@ require 'nokogiri'
 
 class Scraper
   
-  def initialize(url=nil)
+  def initialize(url)
     
-    doc = Nokogiri::HTML(open(url).read)
-    binding.pry
+    doc = Nokogiri::HTML(open(url))
+    #binding.pry
   end
   
 end
 
-url = 'https://www.nps.gov/findapark/index.html'
+url = 'https://www.nps.gov/findapark/index.htm'
 
-scrape = Scraper.new(url)
+scrape = Scraper.new (url)
