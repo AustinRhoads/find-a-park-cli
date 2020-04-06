@@ -28,6 +28,8 @@ class Scraper
     
     doc = Nokogiri::HTML(open(url))
     
+    #park names - doc.css('ul h3').each {|x| puts x.text}
+    
     binding.pry
     
   end
