@@ -25,12 +25,22 @@ class Scraper
   end
   
   def self.scrape_parks(url)
+    parks_urls = []
     
     doc = Nokogiri::HTML(open(url))
     
     #park names - doc.css('ul h3').each {|x| puts x.text}
-    #all park extensions - doc.css('ul h3 a/@href').text
-    binding.pry
+    #all park extensions - doc.css('ul h3 a/@href').each
+    #example - https://www.nps.gov/alka/index.htm
+    #{|x| puts x.text}
+    
+    doc.css('ul h3 a/@href').each do |href|
+    url = "https://www.nps.gov" + href.text + "index.htm"
+    parks_urls << url
+  end
+  binding.pry
+     return parks_urls
+    
     
   end
   
