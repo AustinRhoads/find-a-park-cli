@@ -37,9 +37,11 @@ def state_finder
  hash[:name] = name
  hash[:state_url] = url
  state = State.new(hash)
- return state
+ 
  
  puts state.name
+ binding.pry
+ state
  
 end
 
