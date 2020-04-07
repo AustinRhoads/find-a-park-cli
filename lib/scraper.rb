@@ -43,9 +43,11 @@ class Scraper
     arr = []
     doc = Nokogiri::HTML(open(url))
     #park name - doc.css('a.Hero-title').text
-    #park location -  doc.css("p.adr").text.tr("\n", "")
+    #park mailing location -  doc.css("p.adr").text.tr("\n", "")
     #park phone - doc.css('span.tel').text.tr("\n", "")
     #basic info url - @@BASE_PATH + doc.css('.UtilityNav a/@href').first.text
+    basic_info_url = @@BASE_PATH + doc.css('.UtilityNav a/@href').first.text
+    i_doc = Nokogiri::HTML(open(basic_info_url))
     binding.pry
     
   end
