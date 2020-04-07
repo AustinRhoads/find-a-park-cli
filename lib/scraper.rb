@@ -43,6 +43,7 @@ class Scraper
     doc = Nokogiri::HTML(open(url))
     #park name - doc.css('a.Hero-title').text
     #park location -  doc.css("p.adr").text.tr("\n", "")
+    #park phone - doc.css('span.tel').text.tr("\n", "")
     binding.pry
     
   end
