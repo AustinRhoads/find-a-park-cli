@@ -15,7 +15,7 @@ states_names = []
 State.all.each {|x| states_names << x.name}
 
 urls = Scraper.park_urls(State.all.first.state_url)
-Scraper.scrape_park(urls.first)
+Scraper.scrape_park(urls[1])
 
 end
 

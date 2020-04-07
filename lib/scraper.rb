@@ -44,6 +44,7 @@ class Scraper
     #park name - doc.css('a.Hero-title').text
     #park location -  doc.css("p.adr").text.tr("\n", "")
     #park phone - doc.css('span.tel').text.tr("\n", "")
+    #basic info url - doc.css('.UtilityNav a/@href').first.text
     binding.pry
     
   end
