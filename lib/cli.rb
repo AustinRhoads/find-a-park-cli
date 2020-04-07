@@ -8,18 +8,18 @@ class CommandLineInterface
   
  def self.run 
    
-   @@BASE_PATH = "https://www.nps.gov"
+#   @@BASE_PATH = "https://www.nps.gov"
    
-url = @@BASE_PATH + '/findapark/index.htm'
-states_array = Scraper.scrape_states(url)
-State.make_from_collection(states_array)
-states_names = []
-State.all.each {|x| states_names << x.name}
+#url = @@BASE_PATH + '/findapark/index.htm'
+#states_array = Scraper.scrape_states(url)
+#State.make_from_collection(states_array)
+#states_names = []
+#State.all.each {|x| states_names << x.name}
 
-urls = Scraper.park_urls(State.all.first.state_url)
-Scraper.scrape_park(urls[1])
+#urls = Scraper.park_urls(State.all.first.state_url)
+#Scraper.scrape_park(urls[1])
 
-end
+#end
 
 #end of class
 end

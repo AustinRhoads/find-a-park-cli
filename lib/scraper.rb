@@ -8,33 +8,33 @@ class Scraper
   
   def self.scrape_states(url)
     
-    arr = []
+   # arr = []
     
-    doc = Nokogiri::HTML(open(url))
+  #  doc = Nokogiri::HTML(open(url))
   
-    doc.css('map area').each do |state|
-      next if state.css('/@alt') == "shape"
-      hash = {}
-      hash[:name] = state.css('/@alt').text
-      hash[:state_url] = @@BASE_PATH + state.css('/@href').text 
-      arr << hash
-    end
+  #  doc.css('map area').each do |state|
+  #    next if state.css('/@alt') == "shape"
+   #   hash = {}
+  #    hash[:name] = state.css('/@alt').text
+   #   hash[:state_url] = @@BASE_PATH + state.css('/@href').text 
+  #    arr << hash
+   # end
       
    
-   return arr
+  # return arr
    
    #end of scrape_states
   end
   
   
   def self.park_urls(url)
-    arr = []
+   # arr = []
     
-    doc = Nokogiri::HTML(open(url))
+    #doc = Nokogiri::HTML(open(url))
     
-    doc.css('ul h3 a/@href').each do |href|
-    url = @@BASE_PATH + href.text + "index.htm"
-    arr << url
+    #doc.css('ul h3 a/@href').each do |href|
+    #url = @@BASE_PATH + href.text + "index.htm"
+    #arr << url
   end
      return arr
   end
