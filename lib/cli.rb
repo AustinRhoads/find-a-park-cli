@@ -8,7 +8,9 @@ class CommandLineInterface
   
  def self.run 
    
-url = 'https://www.nps.gov/findapark/index.htm'
+   BASE_PATH = "https://www.nps.gov"
+   
+url = BASE_PATH + '/findapark/index.htm'
 states_array = Scraper.scrape_states(url)
 State.make_from_collection(states_array)
 states_names = []
