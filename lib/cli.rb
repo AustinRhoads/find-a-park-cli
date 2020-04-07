@@ -8,16 +8,16 @@ class CommandLineInterface
   
   @@URL = "https://www.nps.gov/findapark/advanced-search.htm"
   
- def self.run 
-   puts "hey"
+ def run 
+   state_options
 end
 
 
 
-def options 
+def state_options 
 
-
-states_array = Scraper.scrape_states(@@URL)
+puts "hey"
+#states_array = Scraper.scrape_states(@@URL)
 
 end
 
