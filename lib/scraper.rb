@@ -6,9 +6,9 @@ class Scraper
   
   @@BASE_PATH = "https://www.nps.gov"
   
-  def self.scrape_states(url)
+  def self.scrape_states_names(url)
     
-   # arr = []
+    arr = []
     
   #  doc = Nokogiri::HTML(open(url))
   
@@ -24,9 +24,14 @@ class Scraper
   # return arr
    
    doc = Nokogiri::HTML(open(url))
-   binding.pry
+  
    
-  #states names doc.css('select#form-park option').text
+  doc.css('select#form-park option').each do |state_name|
+    next if state_name.text == "State"
+    arr << state_name.text
+  end
+  return arr
+  
    #end of scrape_states
     end
   
