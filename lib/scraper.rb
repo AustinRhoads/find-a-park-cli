@@ -24,8 +24,8 @@ class Scraper
    #end of scrape_states
   end
   
-  def self.scrape_parks(url)
-    parks_urls = []
+  def self.park_urls(url)
+    arr = []
     
     doc = Nokogiri::HTML(open(url))
     
@@ -36,10 +36,10 @@ class Scraper
     
     doc.css('ul h3 a/@href').each do |href|
     url = "https://www.nps.gov" + href.text + "index.htm"
-    parks_urls << url
+    arr << url
   end
   binding.pry
-     return parks_urls
+     return arr
     
     
   end
