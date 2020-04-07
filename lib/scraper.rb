@@ -4,6 +4,7 @@ require 'nokogiri'
 
 class Scraper
   
+  @@BASE_PATH = "https://www.nps.gov"
   
   def self.scrape_states(url)
     
@@ -15,7 +16,7 @@ class Scraper
       next if state.css('/@alt') == "shape"
       hash = {}
       hash[:name] = state.css('/@alt').text
-      hash[:state_url] = "https://www.nps.gov" + state.css('/@href').text 
+      hash[:state_url] = @@BASE_PATH + state.css('/@href').text 
       arr << hash
     end
       
@@ -32,7 +33,7 @@ class Scraper
     doc = Nokogiri::HTML(open(url))
     
     doc.css('ul h3 a/@href').each do |href|
-    url = "https://www.nps.gov" + href.text + "index.htm"
+    url = @@BASE_PATH + href.text + "index.htm"
     arr << url
   end
      return arr
@@ -44,7 +45,7 @@ class Scraper
     #park name - doc.css('a.Hero-title').text
     #park location -  doc.css("p.adr").text.tr("\n", "")
     #park phone - doc.css('span.tel').text.tr("\n", "")
-    #basic info url - doc.css('.UtilityNav a/@href').first.text
+    #basic info url - @@BASE_PATH + doc.css('.UtilityNav a/@href').first.text
     binding.pry
     
   end
