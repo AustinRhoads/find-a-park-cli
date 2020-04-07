@@ -6,18 +6,21 @@ require_relative "../lib/park.rb"
 
 class CommandLineInterface
   
-  @@URL = "https://www.nps.gov/findapark/advanced-search.htm"
+  @@URL = "https://www.nps.gov/findapark/advanced-search.htm" 
+  
+  @@states_array = Scraper.scrape_states_names(@@URL)
   
  def run 
    state_options
+   state_finder
 end
 
 
 
 def state_options 
-states_array = Scraper.scrape_states_names(@@URL)
-states_array.each_with_index do |name, index|
-  puts "#{index + 1}...#{name}"
+
+@@states_array.each_with_index do |hash, index|
+  puts "#{index + 1}...#{hash[:name]}"
  
 end
  puts "-----------------------"
@@ -25,7 +28,12 @@ end
 
 end
 
-
+def state_finder 
+  num = gets.chomp.to_i
+  found = @@states_array[num - 1]
+  puts found
+  
+end
 
 
 
