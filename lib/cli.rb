@@ -19,7 +19,15 @@ class CommandLineInterface
 #urls = Scraper.park_urls(State.all.first.state_url)
 #Scraper.scrape_park(urls[1])
 
-#end
+
+
+url = "https://www.nps.gov/findapark/advanced-search.htm"
+
+states_array = Scraper.scrape_states(url)
+
+end
 
 #end of class
+
+
 end

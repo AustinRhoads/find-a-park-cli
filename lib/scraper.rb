@@ -23,8 +23,12 @@ class Scraper
    
   # return arr
    
+   doc = Nokogiri::HTML(open(url))
+   binding.pry
+   
+  #states names doc.css('select#form-park option').text
    #end of scrape_states
-  end
+    end
   
   
   def self.park_urls(url)
@@ -35,8 +39,8 @@ class Scraper
     #doc.css('ul h3 a/@href').each do |href|
     #url = @@BASE_PATH + href.text + "index.htm"
     #arr << url
-  end
-     return arr
+ # end
+    # return arr
   end
   
   def self.scrape_park(url)
