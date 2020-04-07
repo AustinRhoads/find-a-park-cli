@@ -8,7 +8,7 @@ class CommandLineInterface
   
   @@URL = "https://www.nps.gov/findapark/advanced-search.htm" 
   
-  @@states_array = Scraper.scrape_states_names(@@URL)
+  @@states_array = Scraper.scrape_state_names(@@URL)
   
  def run 
    state_options
@@ -30,9 +30,9 @@ end
 
 def state_finder 
   num = gets.chomp.to_i
-  found = @@states_array[num - 1]
-  puts found
-  
+  value = @@states_array[num - 1][:value]
+ url = @@URL +"?s=#{value}&p=1&v=0"
+ Scraper.scrape_state(url)
 end
 
 

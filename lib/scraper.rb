@@ -6,7 +6,7 @@ class Scraper
   
   @@URL = "https://www.nps.gov/findapark/advanced-search.htm"
   
-  def self.scrape_states_names(url)
+  def self.scrape_state_names(url)
     
     arr = []
     
@@ -54,9 +54,9 @@ class Scraper
     # return arr
   end
   
-  def scrape_state(value)
+  def self.scrape_state(url)
+    binding.pry
     
-    doc = Nokogiri::HTML(open(@@URL +"?s=#{value}&p=1&v=0"))
   end
   
   
