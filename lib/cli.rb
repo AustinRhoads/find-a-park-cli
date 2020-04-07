@@ -14,8 +14,8 @@ State.make_from_collection(states_array)
 states_names = []
 State.all.each {|x| states_names << x.name}
 
-Scraper.park_urls(State.all.first.state_url)
-#binding.pry
+urls = Scraper.park_urls(State.all.first.state_url)
+Scraper.scrape_park(urls.first)
 
 end
 

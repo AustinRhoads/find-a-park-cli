@@ -4,12 +4,13 @@ require 'nokogiri'
 
 class Scraper
   
+  
   def self.scrape_states(url)
+    
     arr = []
+    
     doc = Nokogiri::HTML(open(url))
   
-      
-
     doc.css('map area').each do |state|
       next if state.css('/@alt') == "shape"
       hash = {}
@@ -24,23 +25,24 @@ class Scraper
    #end of scrape_states
   end
   
+  
   def self.park_urls(url)
     arr = []
     
     doc = Nokogiri::HTML(open(url))
     
-    #park names - doc.css('ul h3').each {|x| puts x.text}
-    #all park extensions - doc.css('ul h3 a/@href').each
-    #example - https://www.nps.gov/alka/index.htm
-    #{|x| puts x.text}
-    
     doc.css('ul h3 a/@href').each do |href|
     url = "https://www.nps.gov" + href.text + "index.htm"
     arr << url
   end
-  binding.pry
      return arr
-    
+  end
+  
+  def self.scrape_park(url)
+    arr = []
+    doc = Nokogiri::HTML(open(url))
+    #park name - doc.css('a.Hero-title').text
+    binding.pry
     
   end
   
@@ -48,6 +50,3 @@ class Scraper
   #end of scraper class
 end
 
-#url = 'https://www.nps.gov/findapark/index.htm'
-
-#scrape = Scraper.new (url)
