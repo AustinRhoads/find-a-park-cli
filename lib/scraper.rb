@@ -54,7 +54,8 @@ class Scraper
     # return arr
   end
   
-  def self.scrape_state(url)
+  def self.scrape_state(name, url)
+    
     binding.pry
     
   end

@@ -29,10 +29,11 @@ end
 end
 
 def state_finder 
-  num = gets.chomp.to_i
-  value = @@states_array[num - 1][:value]
+  num = gets.chomp.to_i - 1
+  name = @@states_array[num][:name]
+  value = @@states_array[num][:value]
  url = @@URL +"?s=#{value}&p=1&v=0"
- Scraper.scrape_state(url)
+ Scraper.scrape_state(name, url)
 end
 
 
