@@ -33,8 +33,16 @@ def state_finder
   name = @@states_array[num][:name]
   value = @@states_array[num][:value]
  url = @@URL +"?s=#{value}&p=1&v=0"
- Scraper.scrape_state(name, url)
+ hash = {}
+ hash[:name] = name
+ hash[:state_url] = url
+ state = State.new(hash)
+ return state
+ 
+ puts state.name
+ 
 end
+
 
 
 
