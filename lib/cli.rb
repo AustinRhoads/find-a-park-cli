@@ -18,9 +18,14 @@ def state_options
 states_array = Scraper.scrape_states_names(@@URL)
 states_array.each_with_index do |name, index|
   puts "#{index + 1}...#{name}"
+ 
 end
+ puts "-----------------------"
+  puts "Please enter the number of the state you'd wish to explore."
 
 end
+
+
 
 
 
