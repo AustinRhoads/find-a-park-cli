@@ -27,13 +27,8 @@ end
  puts "-----------------------"
   puts "Please enter the number of the state you'd wish to explore."
    num = gets.chomp.to_i - 1
-  name = arr[num][:name]
-  value = arr[num][:value]
- url = @@URL +"?s=#{value}&p=1&v=0"
- hash = {}
- hash[:name] = name
- hash[:state_url] = url
- state = State.new(hash)
+   state = Scraper.scrape_state(num)
+
  
  
  puts state.name

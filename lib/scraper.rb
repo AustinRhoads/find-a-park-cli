@@ -47,7 +47,15 @@ class Scraper
     # return arr
   end
   
-  def self.scrape_state(name, url)
+  def self.scrape_state(num)
+    arr = Scraper.states_array
+    name = arr[num][:name]
+    value = arr[num][:value]
+    url = @@URL +"?s=#{value}&p=1&v=0"
+    hash = {}
+    hash[:name] = name
+    hash[:state_url] = url
+    return state = State.new(hash)
     doc = Nokogiri::HTML(open(url))
     binding.pry
     
