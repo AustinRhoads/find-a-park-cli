@@ -57,7 +57,7 @@ class Scraper
     hash[:state_url] = url
      state = State.new(hash)
      
-    doc = Nokogiri::HTML(open(url))
+    doc = Nokogiri::HTML(open(url), nil, 'utf-8')
     binding.pry
     
     return state
@@ -88,3 +88,5 @@ class Scraper
 end
 #ListingResultsGrid > ul > li:nth-child(2)
 ##ListingResultsGrid > ul > li:nth-child(1) > a > h3
+#//*[@id="ListingResultsGrid"]/ul/li[2]/a/h3
+#<h3 class="ListingGridItem-title carrot-end">Cabrillo</h3>
