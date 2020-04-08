@@ -12,7 +12,7 @@ class CommandLineInterface
   
  def run 
    state_options
-   state_finder
+   
 end
 
 
@@ -25,11 +25,7 @@ def state_options
 end
  puts "-----------------------"
   puts "Please enter the number of the state you'd wish to explore."
-
-end
-
-def state_finder 
-  num = gets.chomp.to_i - 1
+   num = gets.chomp.to_i - 1
   name = @@states_array[num][:name]
   value = @@states_array[num][:value]
  url = @@URL +"?s=#{value}&p=1&v=0"
@@ -42,8 +38,9 @@ def state_finder
  puts state.name
  binding.pry
  state
- 
 end
+
+
 
 
 
