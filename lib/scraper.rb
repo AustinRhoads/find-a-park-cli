@@ -1,3 +1,4 @@
+
 require 'open-uri'
 require 'pry'
 require 'nokogiri'
@@ -6,22 +7,14 @@ class Scraper
   
   @@URL = "https://www.nps.gov/findapark/advanced-search.htm"
   
+  @@state_options = Scraper.scrape_state_names(@@URL)
+  
+ 
+ 
+ 
   def self.scrape_state_names(url)
     
     arr = []
-    
-  #  doc = Nokogiri::HTML(open(url))
-  
-  #  doc.css('map area').each do |state|
-  #    next if state.css('/@alt') == "shape"
-   #   hash = {}
-  #    hash[:name] = state.css('/@alt').text
-   #   hash[:state_url] = @@BASE_PATH + state.css('/@href').text 
-  #    arr << hash
-   # end
-      
-   
-  # return arr
    
    doc = Nokogiri::HTML(open(url))
   
@@ -55,7 +48,7 @@ class Scraper
   end
   
   def self.scrape_state(name, url)
-    
+    doc = Nokogiri::HTML(open(url))
     binding.pry
     
   end
@@ -74,6 +67,10 @@ class Scraper
   #  i_doc = Nokogiri::HTML(open(basic_info_url))
    # binding.pry
     
+  end
+  
+  def self.state_options 
+    @@state_options
   end
   
   
