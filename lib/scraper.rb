@@ -55,10 +55,12 @@ class Scraper
     hash = {}
     hash[:name] = name
     hash[:state_url] = url
-    return state = State.new(hash)
+     state = State.new(hash)
+     
     doc = Nokogiri::HTML(open(url))
     binding.pry
     
+    return state
   end
   
   

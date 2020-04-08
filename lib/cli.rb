@@ -32,7 +32,7 @@ end
  
  
  puts state.name
- binding.pry
+ 
  state
 end
 
