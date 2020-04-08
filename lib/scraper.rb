@@ -51,7 +51,7 @@ class Scraper
     arr = Scraper.states_array
     name = arr[num][:name]
     value = arr[num][:value]
-    url = @@URL +"?s=#{value}&p=1&v=0"
+    url = @@URL +"?s=#{value}&p=1&v=1"
     hash = {}
     hash[:name] = name
     hash[:state_url] = url
@@ -86,4 +86,5 @@ class Scraper
   
   #end of scraper class
 end
-
+#ListingResultsGrid > ul > li:nth-child(2)
+##ListingResultsGrid > ul > li:nth-child(1) > a > h3
