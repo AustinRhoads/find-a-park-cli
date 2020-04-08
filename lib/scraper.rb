@@ -7,7 +7,7 @@ class Scraper
   
   @@URL = "https://www.nps.gov/findapark/advanced-search.htm"
   
-  @@state_options = Scraper.scrape_state_names(@@URL)
+ # @@state_options = Scraper.scrape_state_names(@@URL)
   
  
  
@@ -69,8 +69,8 @@ class Scraper
     
   end
   
-  def self.state_options 
-    @@state_options
+  def self.states_array 
+    Scraper.scrape_state_names(@@URL)
   end
   
   

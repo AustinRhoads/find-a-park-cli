@@ -8,7 +8,7 @@ class CommandLineInterface
   
   @@URL = "https://www.nps.gov/findapark/advanced-search.htm" 
   
-  @@states_array = Scraper.scrape_state_names(@@URL)
+  #@@states_array = Scraper.scrape_state_names(@@URL)
   
  def run 
    state_options
@@ -18,16 +18,17 @@ end
 
 
 def state_options 
+  arr = Scraper.states_array
 
-@@states_array.each_with_index do |hash, index|
+arr.each_with_index do |hash, index|
   puts "#{index + 1}...#{hash[:name]}"
  
 end
  puts "-----------------------"
   puts "Please enter the number of the state you'd wish to explore."
    num = gets.chomp.to_i - 1
-  name = @@states_array[num][:name]
-  value = @@states_array[num][:value]
+  name = arr[num][:name]
+  value = arr[num][:value]
  url = @@URL +"?s=#{value}&p=1&v=0"
  hash = {}
  hash[:name] = name
