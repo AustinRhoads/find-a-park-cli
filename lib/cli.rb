@@ -52,7 +52,8 @@ end
 
 
 
-
+#park list- doc.css('div select optgroup').text
+#park-list - doc.css('#alphacode').text 
 
 
 
