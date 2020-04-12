@@ -101,6 +101,7 @@ class Scraper
      doc.css('form#urb-browser-form select').each do |x|
        if x.css('/@value') != ""
            puts x.text
+           puts x.class
          end 
        end
     binding.pry
