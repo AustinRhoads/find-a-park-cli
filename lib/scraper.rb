@@ -57,20 +57,25 @@ class Scraper
     hash[:state_url] = url
      state = State.new(hash)
      
-    doc = Nokogiri::HTML(open(url), nil, 'utf-8')
+    
+    return state
+  end
+  
+  def self.scrape_options(url)
+    
+       doc = Nokogiri::HTML(open(url), nil, 'utf-8')
+       
     activity_arr = []
+    
     doc.css('select#form-activity option').each do |activity|
     hash = {}
     hash[:activity] = activity.text 
     hash[:value] = activity.css('/@value').text
     activity_arr << hash 
   end
+  return activity_arr
     
-    binding.pry
-    
-    return state
   end
-  
   
   
   

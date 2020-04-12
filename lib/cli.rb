@@ -11,7 +11,8 @@ class CommandLineInterface
   #@@states_array = Scraper.scrape_state_names(@@URL)
   
  def run 
-   state_options
+   choice = state_options
+   activity_options(choice)
    
 end
 
@@ -37,7 +38,15 @@ end
 end
 
 
-
+def activity_options(state)
+  arr = Scraper.scrape_options(state.state_url)
+  arr.each_with_index do |act, index|
+    puts "#{index + 1}...#{act[:activity]}"
+  end
+  puts "-----------------------"
+  puts "Please enter the activity you wish to do."
+  binding.pry
+end
 
 
 
