@@ -96,6 +96,11 @@ class Scraper
     Scraper.scrape_state_names(@@URL)
   end
   
+  def self.experiment(url)
+    doc = Nokogiri::HTML(open(url))
+    binding.pry
+  end
+  
   
   #end of scraper class
 end

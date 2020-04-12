@@ -13,6 +13,7 @@ class CommandLineInterface
  def run 
    choice = state_options
    activity_options(choice)
+   Scraper.experiment("https://www.nps.gov/findapark/advanced-search.htm?s=CA&&a=3,23&p=1&v=0")
    
 end
 
@@ -45,7 +46,8 @@ def activity_options(state)
   end
   puts "-----------------------"
   puts "Please enter the activity you wish to do."
-  binding.pry
+  num = gets.chomp.to_i - 1
+  
 end
 
 
