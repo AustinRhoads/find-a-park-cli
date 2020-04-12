@@ -98,6 +98,11 @@ class Scraper
   
   def self.experiment(url)
     doc = Nokogiri::HTML(open(url))
+     doc.css('form#urb-browser-form select').each do |x|
+       if x.css('/@value') != ""
+           puts x.text
+         end 
+       end
     binding.pry
   end
   
