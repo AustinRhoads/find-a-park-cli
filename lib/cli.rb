@@ -13,7 +13,7 @@ class CommandLineInterface
  def run 
    choice = state_options
    activity_options(choice)
-   Scraper.experiment("https://www.nps.gov/findapark/advanced-search.htm?s=CA&&a=3,23&p=1&v=0")
+   Scraper.experiment("https://www.nps.gov/findapark/advanced-search.htm?s=CA&a=3&a=3,23&p=1&v=0")
    
 end
 
