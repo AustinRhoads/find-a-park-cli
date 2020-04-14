@@ -96,17 +96,13 @@ class Scraper
     Scraper.scrape_state_names(@@URL)
   end
   
-  def self.experiment#(url)
-  url = 'https://www.nps.gov/findapark/advanced-search.htm?s=CA&a=3&a=3,23&p=1&v=0'
+  def self.experiment(url)
     doc = Nokogiri::HTML(open(url))
-     doc.css('form#urb-browser-form select').each do |x|
-       if x.css('/@value') != ""
-           puts x.text
-           puts x.class
-         end 
-       end
+    
     binding.pry
   end
+  
+
   
   
   #end of scraper class
