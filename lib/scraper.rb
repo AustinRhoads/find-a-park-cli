@@ -98,6 +98,8 @@ class Scraper
   
   def self.experiment(url)
     doc = Nokogiri::HTML(open(url))
+    fulltext = doc.text 
+    
     
     binding.pry
   end
