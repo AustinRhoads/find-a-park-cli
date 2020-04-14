@@ -97,19 +97,34 @@ class Scraper
   end
   
   def self.experiment(url, state, activity)
-    doc = Nokogiri::HTML(open(url))
-    fulltext = doc.text 
-    data_array = fulltext.split(/(?=STATE_NAME)/)
-    data_array.shift
-    new_array = []
-     data_array.each do |park_data|
-     new_array << park_data.gsub(/\"|{|}/, "").split(/,/)
-     #new_array[0][0].delete("STATE_NAME:") == "Kentucky"
-    end
     
+    doc = Nokogiri::HTML(open(url))
+    
+    fulltext = doc.text 
+    
+    data_array = fulltext.split(/(?=STATE_NAME)/)
+    
+    data_array.shift
+    
+    big_book = []
+     data_array.each do |park_data|
+     big_book << park_data.gsub(/\"|{|}/, "").split(/,/)
+   end
+   
+     #big_book[0][0].delete("STATE_NAME:") == "Kentucky"
+   
+    big_book.each do |x|
+      x.each do |b|
+        if b.include?(state.name)
+           x 
+        end
+      end 
+    end
 
     binding.pry
   end
+  
+
   
 
   
