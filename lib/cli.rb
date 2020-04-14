@@ -11,9 +11,10 @@ class CommandLineInterface
   #@@states_array = Scraper.scrape_state_names(@@URL)
   
  def run 
-   choice = state_options
-   activity_options(choice)
-   Scraper.experiment("https://www.nps.gov/findapark/find_a_park.json?dt=1586816373644")
+   state = state_options
+   activity = activity_options(state)
+   ex_url = "https://www.nps.gov/findapark/find_a_park.json?dt=1586816373644"
+   Scraper.experiment(ex_url, state, activity)
    
 end
 

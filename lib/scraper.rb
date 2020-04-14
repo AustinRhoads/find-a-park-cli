@@ -96,7 +96,7 @@ class Scraper
     Scraper.scrape_state_names(@@URL)
   end
   
-  def self.experiment(url)
+  def self.experiment(url, state, activity)
     doc = Nokogiri::HTML(open(url))
     fulltext = doc.text 
     data_array = fulltext.split(/(?=STATE_NAME)/)
