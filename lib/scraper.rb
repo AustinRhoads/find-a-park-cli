@@ -104,10 +104,10 @@ class Scraper
     new_array = []
      data_array.each do |park_data|
      new_array << park_data.gsub(/\"|{|}/, "").split(/,/)
+     #new_array[0][0].delete("STATE_NAME:") == "Kentucky"
     end
     
-  # tester = data_array[1].gsub(/\"/, "").split(/,/)
-   # arr = tester
+
     binding.pry
   end
   
