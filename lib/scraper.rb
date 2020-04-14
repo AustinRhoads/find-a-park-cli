@@ -100,8 +100,14 @@ class Scraper
     doc = Nokogiri::HTML(open(url))
     fulltext = doc.text 
     data_array = fulltext.split(/(?=STATE_NAME)/)
-   tester = data_array[1].split(/,/)
-    arr = tester
+    data_array.shift
+    new_array = []
+     data_array.each do |park_data|
+     new_array << park_data.gsub(/\"|{|}/, "").split(/,/)
+    end
+    
+  # tester = data_array[1].gsub(/\"/, "").split(/,/)
+   # arr = tester
     binding.pry
   end
   
