@@ -58,6 +58,7 @@ class Scraper
     hash[:value] = activity.css('/@value').text
     activity_arr << hash 
   end
+  activity_arr.push({:activity => "all parks", :value => "00"})
   return activity_arr
     
   end
@@ -115,6 +116,7 @@ arr.each do |x|
   end
    park = Park.new(name, park_state)
    activities.each {|a| park.activities << a} 
+   park.activities << "00"
    park.url = @@BASE_PATH + "/" + park_code + "/" + @@SUFFIX
 end
 #binding.pry

@@ -51,10 +51,9 @@ def activity_options(state)
     puts "#{index + 1}...#{act[:activity]}"
   end
   puts "-----------------------"
-  puts "Please enter the activity you wish to do."
+  puts "Please enter the activity you wish to do, or enter 0 to see all the parks in #{state.name}."
   num = gets.chomp.to_i - 1
   puts ""
-  
   return arr[num]
   
 end
