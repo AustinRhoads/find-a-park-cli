@@ -7,14 +7,19 @@ require_relative "../lib/park.rb"
 class CommandLineInterface
   
   @@URL = "https://www.nps.gov/findapark/advanced-search.htm" 
-  
+  @@ex_url = "https://www.nps.gov/findapark/find_a_park.json?dt=1586816373644"
   #@@states_array = Scraper.scrape_state_names(@@URL)
   
  def run 
    state = state_options
    activity = activity_options(state)
-   ex_url = "https://www.nps.gov/findapark/find_a_park.json?dt=1586816373644"
-   Scraper.experiment(ex_url, state, activity)
+   
+   Scraper.experiment(@@ex_url, state, activity)
+   search_results = results(state, activity)
+   puts "#{search_results.length} results found for #{activity[:activity]} in #{state.name}"
+   search_results.each_with_index do |park, index|
+     puts "#{index + 1}...#{park.name}"
+   end
    
 end
 
@@ -52,6 +57,16 @@ def activity_options(state)
   
 end
 
+
+def results(state, activity)
+  arr = []
+  Park.all.each do |park|
+    if park.state == state && park.activities.include?(activity[:value])
+      arr << park 
+    end
+  end 
+  return arr
+end
 
 
 #park list- doc.css('div select optgroup').text

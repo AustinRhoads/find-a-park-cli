@@ -82,7 +82,7 @@ class Scraper
      big_book << park_data.gsub(/\"|{|}/, "").split(/,/)
    end
    
-     #big_book[0][0].delete("STATE_NAME:") == "Kentucky"
+     
      search_array = []
    
     big_book.each do |x|
@@ -94,7 +94,7 @@ class Scraper
     end
     
 Scraper.make_parks(search_array, state)
-    binding.pry
+  #binding.pry
   end
   
 def self.make_parks(arr, state)
