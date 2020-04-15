@@ -6,7 +6,8 @@ require 'nokogiri'
 class Scraper
   
   @@URL = "https://www.nps.gov/findapark/advanced-search.htm"
-  
+  @@BASE_PATH = "https://www.nps.gov"
+  @@SUFFIX = "index.htm"
  
   def self.scrape_state_names(url)
     
@@ -102,17 +103,21 @@ arr.each do |x|
   name = ""
   park_state = state
   activities = []
+  park_code = ""
   x.each do |b|
     if b.include?("PARK_NAME")
       name = b.gsub("PARK_NAME:", "")
     elsif b.include?("activity_id:") 
     activities << b.gsub(/\D/, "")
+    elsif b.include?("PARK_CODE")
+    park_code = b.gsub("PARK_CODE:", "")
     end
   end
    park = Park.new(name, park_state)
    activities.each {|a| park.activities << a} 
+   park.url = @@BASE_PATH + "/" + park_code + "/" + @@SUFFIX
 end
-
+#binding.pry
 end  
 
   
@@ -121,5 +126,5 @@ end
 end
 
 
-
+#park url - https://www.nps.gov/alca/index.htm
 #new_doc = Nokogiri::HTML(open('https://www.nps.gov/findapark/find_a_park.json?dt=1586816373644'))
