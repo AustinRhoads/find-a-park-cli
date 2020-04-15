@@ -101,6 +101,7 @@ def display_choice(choice)
   puts "Park address:    "+ choice.address.gsub("PO Box ", "")
   puts "Park url :       " + choice.url
   puts "Park Phone no.   "+choice.phone
+  puts "------------------------------------------------------"
 end
 
 #park list- doc.css('div select optgroup').text
