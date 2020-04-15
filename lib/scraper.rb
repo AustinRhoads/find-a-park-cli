@@ -101,6 +101,7 @@ Scraper.make_parks(search_array, state)
   
 def self.make_parks(arr, state)
 arr.each do |x|
+ 
   name = ""
   park_state = state
   activities = []
@@ -114,12 +115,15 @@ arr.each do |x|
     park_code = b.gsub("PARK_CODE:", "")
     end
   end
+  next if Park.all_names.include?(name)
    park = Park.new(name, park_state)
    activities.each {|a| park.activities << a} 
    park.activities << "00"
    park.url = @@BASE_PATH + "/" + park_code + "/" + @@SUFFIX
+ 
+ 
 end
-#binding.pry
+binding.pry
 end  
 
 def self.add_details(choice)

@@ -19,5 +19,13 @@ def self.all
   @@all 
 end
 
+def self.all_names 
+  arr = [] 
+  @@all.each do |x|
+    arr << x.name 
+  end
+  return arr
+end
+
   
 end
