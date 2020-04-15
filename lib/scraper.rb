@@ -109,7 +109,8 @@ arr.each do |x|
     activities << b.gsub("activity_id:", "")
     end
   end
-   Park.new(name, park_state)
+   shlama = Park.new(name, park_state)
+   activities.each {|a| shlama.activities << a} 
 end
 
 end  
