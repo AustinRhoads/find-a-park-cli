@@ -16,15 +16,9 @@ class CommandLineInterface
    
    Scraper.experiment(@@ex_url, state, activity)
    search_results = results(state, activity)
-   if search_results.length == 1 
-   puts "#{search_results.length} result found for #{activity[:activity]} in #{state.name}"
- else
-   puts "#{search_results.length} results found for #{activity[:activity]} in #{state.name}"
- end
-   search_results.each_with_index do |park, index|
-     puts "#{index + 1}...#{park.name}"
-   end
+  display_results(search_results, state, activity)
    select_a_park(search_results)
+  
   # binding.pry
 end
 
@@ -58,6 +52,8 @@ def activity_options(state)
   puts "-----------------------"
   puts "Please enter the activity you wish to do."
   num = gets.chomp.to_i - 1
+  puts ""
+  
   return arr[num]
   
 end
@@ -74,12 +70,27 @@ def results(state, activity)
 end
 
 def select_a_park(search_results)
+puts "-----------------------"
 puts "Please enter the number of the park you'd wish to explore."
 num = gets.chomp.to_i - 1
 choice = search_results[num]
 puts choice.name 
 puts "Park url : " + choice.url 
+return choice
 end
+
+
+def display_results(search_results, state, activity)
+    if search_results.length == 1 
+   puts "#{search_results.length} result found for #{activity[:activity]} in #{state.name}"
+ else
+   puts "#{search_results.length} results found for #{activity[:activity]} in #{state.name}"
+ end
+   search_results.each_with_index do |park, index|
+     puts "#{index + 1}...#{park.name}"
+   end
+end
+
 #park list- doc.css('div select optgroup').text
 #park-list - doc.css('#alphacode').text 
 #park-list - doc.css('.js-multiselect-findapark').text
