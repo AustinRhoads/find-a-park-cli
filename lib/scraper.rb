@@ -68,7 +68,7 @@ class Scraper
     Scraper.scrape_state_names(@@URL)
   end
   
-  def self.experiment(url, state, activity)
+  def self.search_parks(url, state, activity)
     
     doc = Nokogiri::HTML(open(url))
     

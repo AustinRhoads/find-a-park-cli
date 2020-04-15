@@ -14,7 +14,7 @@ class CommandLineInterface
    state = state_options
    activity = activity_options(state)
    
-   Scraper.experiment(@@ex_url, state, activity)
+   Scraper.search_parks(@@ex_url, state, activity)
    search_results = results(state, activity)
   display_results(search_results, state, activity)
    select_a_park(search_results)
