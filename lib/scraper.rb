@@ -99,12 +99,17 @@ Scraper.make_parks(search_array, state)
   
 def self.make_parks(arr, state)
 arr.each do |x|
+  name = ""
+  park_state = state
+  activities = []
   x.each do |b|
     if b.include?("PARK_NAME")
       name = b.gsub("PARK_NAME:", "")
-      Park.new(name, state)
+    elsif b.include?("activity_id:") 
+    activities << b.gsub("activity_id:", "")
     end
   end
+   Park.new(name, park_state)
 end
 
 end  

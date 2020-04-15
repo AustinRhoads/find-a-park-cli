@@ -48,6 +48,7 @@ def activity_options(state)
   puts "-----------------------"
   puts "Please enter the activity you wish to do."
   num = gets.chomp.to_i - 1
+  return arr[num]
   
 end
 
