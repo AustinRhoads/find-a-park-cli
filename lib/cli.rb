@@ -17,8 +17,8 @@ class CommandLineInterface
    Scraper.search_parks(@@ex_url, state, activity)
    search_results = results(state, activity)
   display_results(search_results, state, activity)
-   select_a_park(search_results)
-  
+   choice = select_a_park(search_results)
+  more_details(choice)
   # binding.pry
 end
 
@@ -89,6 +89,11 @@ def display_results(search_results, state, activity)
    search_results.each_with_index do |park, index|
      puts "#{index + 1}...#{park.name}"
    end
+end
+
+def more_details(choice)
+  Scraper.add_details(choice)
+
 end
 
 #park list- doc.css('div select optgroup').text

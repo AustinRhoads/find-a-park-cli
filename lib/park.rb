@@ -1,6 +1,6 @@
 class Park
   @@all = []
-  attr_accessor :name, :state, :url
+  attr_accessor :name, :state, :url, :address, :phone
   
   def initialize(name, state)
     @name = name 
