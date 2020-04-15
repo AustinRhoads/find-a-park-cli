@@ -24,7 +24,8 @@ class CommandLineInterface
    search_results.each_with_index do |park, index|
      puts "#{index + 1}...#{park.name}"
    end
-   binding.pry
+   select_a_park(search_results)
+  # binding.pry
 end
 
 
@@ -72,7 +73,13 @@ def results(state, activity)
   return arr
 end
 
-
+def select_a_park(search_results)
+puts "Please enter the number of the park you'd wish to explore."
+num = gets.chomp.to_i - 1
+choice = search_results[num]
+puts choice.name 
+puts "Park url : " + choice.url 
+end
 #park list- doc.css('div select optgroup').text
 #park-list - doc.css('#alphacode').text 
 #park-list - doc.css('.js-multiselect-findapark').text
