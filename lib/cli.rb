@@ -19,6 +19,7 @@ class CommandLineInterface
   display_results(search_results, state, activity)
    choice = select_a_park(search_results)
   more_details(choice)
+  display_choice(choice)
   # binding.pry
 end
 
@@ -74,8 +75,7 @@ puts "-----------------------"
 puts "Please enter the number of the park you'd wish to explore."
 num = gets.chomp.to_i - 1
 choice = search_results[num]
-puts choice.name 
-puts "Park url : " + choice.url 
+ 
 return choice
 end
 
@@ -94,6 +94,13 @@ end
 def more_details(choice)
   Scraper.add_details(choice)
 
+end
+
+def display_choice(choice) 
+  puts "Park Name:       "+choice.name 
+  puts "Park address:    "+ choice.address.gsub("PO Box ", "")
+  puts "Park url :       " + choice.url
+  puts "Park Phone no.   "+choice.phone
 end
 
 #park list- doc.css('div select optgroup').text
