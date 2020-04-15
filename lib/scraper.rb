@@ -120,10 +120,8 @@ arr.each do |x|
    activities.each {|a| park.activities << a} 
    park.activities << "00"
    park.url = @@BASE_PATH + "/" + park_code + "/" + @@SUFFIX
- 
- 
 end
-binding.pry
+
 end  
 
 def self.add_details(choice)
