@@ -106,7 +106,7 @@ arr.each do |x|
     if b.include?("PARK_NAME")
       name = b.gsub("PARK_NAME:", "")
     elsif b.include?("activity_id:") 
-    activities << b.gsub("activity_id:", "")
+    activities << b.gsub(/\D/, "")
     end
   end
    shlama = Park.new(name, park_state)
