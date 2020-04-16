@@ -8,7 +8,7 @@ class CommandLineInterface
   
   @@URL = "https://www.nps.gov/findapark/advanced-search.htm" 
   @@ex_url = "https://www.nps.gov/findapark/find_a_park.json?dt=1586816373644"
-  #@@states_array = Scraper.scrape_state_names(@@URL)
+  
   
  def run 
    state = state_options
@@ -18,8 +18,7 @@ class CommandLineInterface
    search_results = results(state, activity)
   display_results(search_results, state, activity)
    choice = select_a_park(search_results)
- # more_details(choice)
-  #display_choice(choice)
+
   # binding.pry
 end
 
