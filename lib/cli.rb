@@ -97,7 +97,7 @@ end
 
 def display_choice(choice) 
   puts "Park Name:       "+choice.name 
-  puts "Park address:    "+ choice.address.gsub("PO Box ", "")
+  puts "Park location:    "+ choice.location.gsub("PO Box ", "")
   puts "Park url :       " + choice.url
   puts "Park Phone no.   "+choice.phone
   puts "------------------------------------------------------"

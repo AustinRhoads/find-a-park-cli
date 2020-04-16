@@ -127,9 +127,9 @@ end
 def self.add_details(choice)
   park_url = choice.url
   doc = Nokogiri::HTML(open(park_url))
-  choice.address = doc.css('p.adr').text.gsub(/\n/, "")
+  choice.location = doc.css("p.adr span[itemprop='addressLocality']").text + " " + doc.css("p.adr span[itemprop='addressRegion']").text + " " + doc.css("p.adr span[itemprop='postalCode']").text
   choice.phone = doc.css('span.tel').text.gsub(/\n/, "")
-  #binding.pry
+  binding.pry
 end
 
   
