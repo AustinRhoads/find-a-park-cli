@@ -18,8 +18,8 @@ class CommandLineInterface
    search_results = results(state, activity)
   display_results(search_results, state, activity)
    choice = select_a_park(search_results)
-  more_details(choice)
-  display_choice(choice)
+ # more_details(choice)
+  #display_choice(choice)
   # binding.pry
 end
 
@@ -71,10 +71,18 @@ end
 
 def select_a_park(search_results)
 puts "-----------------------"
-puts "Please enter the number of the park you'd wish to explore."
+puts "Please enter the number of the park you'd wish to explore, or enter 0 to see each park's details."
 num = gets.chomp.to_i - 1
+if num == -1
+  search_results.each do |p|
+    more_details(p)
+    display_choice(p)
+  end
+  else
 choice = search_results[num]
- 
+more_details(choice)
+display_choice(choice)
+ end
 return choice
 end
 
