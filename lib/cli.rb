@@ -77,7 +77,7 @@ if num == -1
     more_details(p)
     display_choice(p)
   end
-  else
+else
 choice = search_results[num]
 more_details(choice)
 display_choice(choice)
