@@ -72,9 +72,12 @@ def results(state, activity)
 end
 
 def select_a_park(search_results)
+#  if search_results >=1 == true
 puts "-----------------------"
-puts "Please enter the number of the park you'd wish to explore,
-or enter 0 to see each park's details."
+puts "Please enter the number of the park you'd wish to explore."
+if search_results.length >= 2 == true
+  puts "Or enter 0 to see all listed park's details."
+end
 num = gets.chomp.to_i - 1
 if num == -1
   search_results.each do |p|
