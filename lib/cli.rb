@@ -57,8 +57,8 @@ def activity_options(state)
     puts "#{index + 1}...#{act[:activity]}"
   end
   puts "-----------------------"
-  puts "Please enter the activity you wish to do,
-  or enter 0 to see all the parks in #{state.name}."
+  puts "Please enter the activity you wish to do."
+  puts "Or enter 0 to see all the parks in #{state.name}."
   num = gets.chomp.to_i - 1
   puts ""
   return arr[num]
@@ -132,7 +132,7 @@ def research(state)
   puts "1...Keep searching this state."
   puts "2...Search a different State."
   puts "3...Exit"
-  next_action = gets
+  next_action = gets.chomp
   case next_action 
   when "1"
     state_search(state)
