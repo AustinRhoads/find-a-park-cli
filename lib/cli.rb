@@ -12,16 +12,22 @@ class CommandLineInterface
   
  def run 
    state = state_options
-   activity = activity_options(state)
+   state_search(state)
    
-   Scraper.search_parks(@@ex_url, state, activity)
-   search_results = results(state, activity)
-  display_results(search_results, state, activity)
-   choice = select_a_park(search_results)
-
-  # binding.pry
 end
 
+def state_search(state)
+  activity = activity_options(state)
+  Scraper.search_parks(@@ex_url, state, activity)
+  search_results = results(state, activity)
+  display_results(search_results, state, activity)
+    if search_results.length >=1
+   choice = select_a_park(search_results)
+   research(state)
+ else 
+   research(state)
+ end
+end
 
 
 def state_options 
@@ -72,7 +78,9 @@ def results(state, activity)
 end
 
 def select_a_park(search_results)
-#  if search_results >=1 == true
+# if search_results.length == 0
+ #  research 
+ #else
 puts "-----------------------"
 puts "Please enter the number of the park you'd wish to explore."
 if search_results.length >= 2 == true
@@ -90,6 +98,7 @@ more_details(choice)
 display_choice(choice)
  end
 return choice
+#end
 end
 
 
@@ -121,7 +130,24 @@ end
 #park-list - doc.css('#alphacode').text 
 #park-list - doc.css('.js-multiselect-findapark').text
 
+def research(state)
+  puts "-----------------------"
+  puts "What would you like to do next?"
+  puts ""
+  puts "1...Keep searching this state."
+  puts "2...Search a different State."
+  puts "3...Exit"
+  next_action = gets
+  case next_action 
+  when "1"
+    state_search(state)
+  when "2" 
+      run
+  else 
+    puts "Thanks for using the Find-a-Park cli app!"
+  end
 
+end
 
 
 
