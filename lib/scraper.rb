@@ -18,17 +18,17 @@ class Scraper
     doc.css('select#form-park option').each do |state_name|
     
     next if state_name.text == "State"
-    hash = {}
-    hash[:name] = state_name.text
-    hash[:value] = state_name.css('/@value').text
-    arr << hash
-  end
+      hash = {}
+      hash[:name] = state_name.text
+      hash[:value] = state_name.css('/@value').text
+      arr << hash
+    end
   
-  return arr
+    return arr
   
   
    #end of scrape_states_names
-    end
+ end
   
 
   
@@ -40,26 +40,26 @@ class Scraper
     hash = {}
     hash[:name] = name
     hash[:state_url] = url
-     state = State.new(hash)
-     
-    
+    state = State.new(hash)
     return state
   end
   
   def self.scrape_options(url)
     
-       doc = Nokogiri::HTML(open(url), nil, 'utf-8')
+    doc = Nokogiri::HTML(open(url), nil, 'utf-8')
        
     activity_arr = []
     
     doc.css('select#form-activity option').each do |activity|
-    hash = {}
-    hash[:activity] = activity.text 
-    hash[:value] = activity.css('/@value').text
-    activity_arr << hash 
-  end
-  activity_arr.push({:activity => "all parks", :value => "00"})
-  return activity_arr
+      hash = {}
+      hash[:activity] = activity.text 
+      hash[:value] = activity.css('/@value').text
+      activity_arr << hash 
+    end
+    
+    activity_arr.push({:activity => "all parks", :value => "00"})
+    
+    return activity_arr
     
   end
   
@@ -80,9 +80,10 @@ class Scraper
     data_array.shift
     
     big_book = []
+    
      data_array.each do |park_data|
      big_book << park_data.gsub(/\"|{|}/, "").split(/,/)
-   end
+    end
    
      
      search_array = []
@@ -93,6 +94,7 @@ class Scraper
             search_array << x
         end
       end 
+      
     end
     
 Scraper.make_parks(search_array, state)
@@ -139,5 +141,4 @@ end
 end
 
 
-#park url - https://www.nps.gov/alca/index.htm
-#new_doc = Nokogiri::HTML(open('https://www.nps.gov/findapark/find_a_park.json?dt=1586816373644'))
+
