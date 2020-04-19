@@ -33,20 +33,21 @@ end
 def state_options 
   arr = Scraper.states_array
 
-arr.each_with_index do |hash, index|
-  puts "#{index + 1}...#{hash[:name]}"
- 
-end
- puts "-----------------------"
+  arr.each_with_index do |hash, index|
+    puts "#{index + 1}...#{hash[:name]}"
+  end
+  
+  puts "-----------------------"
   puts "Please enter the number of the state you'd wish to explore."
-   num = gets.chomp.to_i - 1
-   state = Scraper.scrape_state(num)
+  
+  num = gets.chomp.to_i - 1
+  
+  state = Scraper.scrape_state(num)
+  
+  puts state.name
+  
+  state
 
- 
- 
- puts state.name
- 
- state
 end
 
 
@@ -78,37 +79,35 @@ def results(state, activity)
 end
 
 def select_a_park(search_results)
-# if search_results.length == 0
- #  research 
- #else
-puts "-----------------------"
-puts "Please enter the number of the park you'd wish to explore."
-if search_results.length >= 2 == true
+
+  puts "-----------------------"
+  puts "Please enter the number of the park you'd wish to explore."
+  if search_results.length >= 2 == true
   puts "Or enter 0 to see all listed park's details."
-end
-num = gets.chomp.to_i - 1
-if num == -1
-  search_results.each do |p|
-    more_details(p)
-    display_choice(p)
   end
-else
-choice = search_results[num]
-more_details(choice)
-display_choice(choice)
- end
-return choice
-#end
+  num = gets.chomp.to_i - 1
+  if num == -1
+    search_results.each do |p|
+      more_details(p)
+      display_choice(p)
+  end
+  else
+  choice = search_results[num]
+  more_details(choice)
+  display_choice(choice)
+  end
+  return choice
+
 end
 
 
 def display_results(search_results, state, activity)
     if search_results.length == 1 
-   puts "#{search_results.length} result found for #{activity[:activity]} in #{state.name}"
- else
-   puts "#{search_results.length} results found for #{activity[:activity]} in #{state.name}"
- end
-   search_results.each_with_index do |park, index|
+    puts "#{search_results.length} result found for #{activity[:activity]} in #{state.name}"
+   else
+    puts "#{search_results.length} results found for #{activity[:activity]} in #{state.name}"
+   end
+     search_results.each_with_index do |park, index|
      puts "#{index + 1}...#{park.name}"
    end
 end
@@ -125,10 +124,6 @@ def display_choice(choice)
   puts "Park Phone no.   "+choice.phone
   puts "------------------------------------------------------"
 end
-
-#park list- doc.css('div select optgroup').text
-#park-list - doc.css('#alphacode').text 
-#park-list - doc.css('.js-multiselect-findapark').text
 
 def research(state)
   puts "-----------------------"
