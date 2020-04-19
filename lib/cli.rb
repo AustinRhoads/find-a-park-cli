@@ -59,7 +59,7 @@ def activity_options(state)
   puts "-----------------------"
   puts "Please enter the activity you wish to do."
   puts "Or enter 0 to see all the parks in #{state.name}." 
-  num = 99
+  num = arr.length + 1
   until num <= arr.length
    num = gets.chomp.to_i - 1
     puts ""
@@ -96,7 +96,7 @@ def select_a_park(search_results)
     search_results.each do |p|
       more_details(p)
       display_choice(p)
-  end
+    end
   else
   choice = search_results[num]
   more_details(choice)
