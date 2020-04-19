@@ -58,11 +58,17 @@ def activity_options(state)
   end
   puts "-----------------------"
   puts "Please enter the activity you wish to do."
-  puts "Or enter 0 to see all the parks in #{state.name}."
-  num = gets.chomp.to_i - 1
-  puts ""
-  return arr[num]
-  
+  puts "Or enter 0 to see all the parks in #{state.name}." 
+  num = 99
+  until num <= arr.length
+   num = gets.chomp.to_i - 1
+    puts ""
+    if num > arr.length 
+    puts "Sorry, that is not a valid selection. Please try again." 
+    else
+    return arr[num]
+  end
+  end
 end
 
 
