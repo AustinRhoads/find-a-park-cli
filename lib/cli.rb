@@ -50,7 +50,8 @@ def activity_options(state)
     puts "#{index + 1}...#{act[:activity]}"
   end
   puts "-----------------------"
-  puts "Please enter the activity you wish to do, or enter 0 to see all the parks in #{state.name}."
+  puts "Please enter the activity you wish to do,
+  or enter 0 to see all the parks in #{state.name}."
   num = gets.chomp.to_i - 1
   puts ""
   return arr[num]
@@ -70,7 +71,8 @@ end
 
 def select_a_park(search_results)
 puts "-----------------------"
-puts "Please enter the number of the park you'd wish to explore, or enter 0 to see each park's details."
+puts "Please enter the number of the park you'd wish to explore,
+or enter 0 to see each park's details."
 num = gets.chomp.to_i - 1
 if num == -1
   search_results.each do |p|
