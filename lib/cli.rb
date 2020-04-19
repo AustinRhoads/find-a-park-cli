@@ -60,9 +60,11 @@ end
 
 
 def results(state, activity)
+ 
   arr = []
-  Park.all.each do |park|
-    if park.state == state && park.activities.include?(activity[:value])
+
+  state.parks.each do |park|
+    if park.activities.include?(activity[:value])
       arr << park 
     end
   end 
