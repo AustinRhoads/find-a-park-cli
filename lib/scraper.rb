@@ -100,15 +100,18 @@ class Scraper
      search_array = []
    #binding.pry
     big_book.each do |x|
-      x.each do |b|
+      
+      x.each_with_index do |b, index|
         
-        if b.include?(state.name)  || x.last.include?(state.state_code) 
+        if x.last.include?(state.state_code)
             search_array << x
+      
         end
+        
       end 
       
     end
-    binding.pry
+    #binding.pry
 Scraper.make_parks(search_array, state)
   #binding.pry
   end
@@ -144,9 +147,13 @@ def self.add_details(choice)
   doc = Nokogiri::HTML(open(park_url))
   choice.location = doc.css("p.adr span[itemprop='addressLocality']").text + " " + doc.css("p.adr span[itemprop='addressRegion']").text + " " + doc.css("p.adr span[itemprop='postalCode']").text
   choice.phone = doc.css('span.tel').text.gsub(/\n/, "")
+  
 end
 end
 
+def self.add_states_to_park(park, arr)
+  
+end
   
   
   #end of scraper class
