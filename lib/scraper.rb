@@ -86,17 +86,23 @@ class Scraper
     data_array.shift
     
     big_book = []
-    
+   # binding.pry
      data_array.each do |park_data|
-     big_book << park_data.gsub(/\"|{|}/, "").split(/,/)
+      state_code_list = park_data.gsub(/\"|{|}/, "").split("STATE_CODE_LIST:").pop.split("BANNER")[0].gsub(" ","").split(",")
+      park_page = park_data.gsub(/\"|{|}/, "").split(/,/)
+      complete_page = park_page << state_code_list 
+      big_book << complete_page
+      
+     #big_book << park_data.gsub(/\"|{|}/, "").split(/,/) 
     end
    
     # binding.pry
      search_array = []
-   
+   #binding.pry
     big_book.each do |x|
       x.each do |b|
-        if b.include?(state.name) # || b.include?(state.state_code)
+        
+        if b.include?(state.name)  || x.last.include?(state.state_code) 
             search_array << x
         end
       end 
