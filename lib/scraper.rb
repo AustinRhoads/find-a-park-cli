@@ -16,6 +16,7 @@ class Scraper
     arr = []
    
     doc = Nokogiri::HTML(open(url))
+    
    
     doc.css('select#form-park option').each do |state_name|
     
@@ -50,7 +51,7 @@ class Scraper
   
   def self.scrape_options(url)
     
-    doc = Nokogiri::HTML(open(url), nil, 'utf-8')
+    doc = Nokogiri::HTML(open(url))
        
     activity_arr = []
     
