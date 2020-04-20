@@ -91,18 +91,18 @@ class Scraper
      big_book << park_data.gsub(/\"|{|}/, "").split(/,/)
     end
    
-     binding.pry
+    # binding.pry
      search_array = []
    
     big_book.each do |x|
       x.each do |b|
-        if b.include?(state.name)
+        if b.include?(state.name) # || b.include?(state.state_code)
             search_array << x
         end
       end 
       
     end
-    
+    binding.pry
 Scraper.make_parks(search_array, state)
   #binding.pry
   end
