@@ -4,6 +4,8 @@ require 'pry'
 require 'nokogiri'
 
 class Scraper
+  #need to find more states in alabama and others. search a state value so parks can have multiple states.
+  
   
   @@URL = "https://www.nps.gov/findapark/advanced-search.htm"
   @@BASE_PATH = "https://www.nps.gov"
