@@ -40,9 +40,11 @@ def state_options
   puts "-----------------------"
   puts "Please enter the number of the state you'd wish to explore."
   
-  num = gets.chomp.to_i - 1
+  #num = gets.chomp.to_i - 1
   
-  state = Scraper.scrape_state(num)
+  choice = valid_selection(arr)
+  
+  state = Scraper.scrape_state(choice)
   
   puts state.name
   
@@ -59,21 +61,12 @@ def activity_options(state)
   puts "-----------------------"
   puts "Please enter the activity you wish to do."
   puts "Or enter 0 to see all the parks in #{state.name}." 
- # num = arr.length + 1
-  #until num <= arr.length
-  # num = gets.chomp.to_i - 1
-   # puts ""
-  #  if num > arr.length 
-   # puts "Sorry, that is not a valid selection. Please try again." 
-  #  else
-   # return arr[num]
-  #end
-  #end
+
   valid_selection(arr)
 end
 
 def valid_selection(arr)
-  binding.pry
+  
    num = arr.length + 1
   until num < arr.length 
    num = gets.chomp.to_i - 1

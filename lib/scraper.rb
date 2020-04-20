@@ -32,13 +32,15 @@ class Scraper
   
 
   
-  def self.scrape_state(num)
-    arr = Scraper.states_array
-    name = arr[num][:name]
-    value = arr[num][:value]
-    url = @@URL +"?s=#{value}&p=1&v=1"
+  def self.scrape_state(choice)
+    
+   # arr = Scraper.states_array
+   
+    #name = choice[:name]
+    #value = choice[:value]
+    url = @@URL +"?s=#{choice[:value]}&p=1&v=1"
     hash = {}
-    hash[:name] = name
+    hash[:name] = choice[:name]
     hash[:state_url] = url
     state = State.new(hash)
     return state
