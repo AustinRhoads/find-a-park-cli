@@ -117,12 +117,14 @@ Scraper.make_parks(search_array, state)
   end
   
 def self.make_parks(arr, state)
+ # binding.pry
 arr.each do |x|
  
   name = ""
   park_state = state
   activities = []
   park_code = ""
+  state_code_list = x.last
   x.each do |b|
     if b.include?("PARK_NAME")
       name = b.gsub("PARK_NAME:", "")
@@ -134,6 +136,7 @@ arr.each do |x|
   end
   next if Park.all_names.include?(name)
    park = Park.new(name, park_state)
+   park.state_code_list = state_code_list
    activities.each {|a| park.activities << a} 
    park.activities << "00"
    park.url = @@BASE_PATH + "/" + park_code + "/" + @@SUFFIX
@@ -142,6 +145,7 @@ end
 end  
 
 def self.add_details(choice)
+  binding.pry
   if choice.location == nil
   park_url = choice.url
   doc = Nokogiri::HTML(open(park_url))

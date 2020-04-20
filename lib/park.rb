@@ -1,6 +1,7 @@
 class Park
   @@all = []
   attr_accessor :name, :state, :url, :location, :phone
+  attr_reader :state_code_list
   
   def initialize(name, state)
     @state_code_list = []
@@ -28,8 +29,8 @@ def self.all_names
   return arr
 end
 
-def state_code_list 
- @state_code_list 
+def state_code_list=(list) 
+ @state_code_list << list 
 end
 
   
