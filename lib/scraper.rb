@@ -4,7 +4,7 @@ require 'pry'
 require 'nokogiri'
 
 class Scraper
-  #need to find more states in alabama and others. search a state value so parks can have multiple states.
+  #need to find more parks in alabama and others. search a state value so parks can have multiple states.
   
   
   @@URL = "https://www.nps.gov/findapark/advanced-search.htm"
@@ -90,7 +90,7 @@ class Scraper
      big_book << park_data.gsub(/\"|{|}/, "").split(/,/)
     end
    
-     
+     binding.pry
      search_array = []
    
     big_book.each do |x|
