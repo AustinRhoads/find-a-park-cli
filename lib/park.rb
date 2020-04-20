@@ -3,6 +3,7 @@ class Park
   attr_accessor :name, :state, :url, :location, :phone
   
   def initialize(name, state)
+    @state_code_list = []
     @name = name 
     state.parks << self 
     self.state = state
@@ -25,6 +26,10 @@ def self.all_names
     arr << x.name 
   end
   return arr
+end
+
+def state_code_list 
+ @state_code_list 
 end
 
   
