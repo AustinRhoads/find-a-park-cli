@@ -45,6 +45,7 @@ class Scraper
     hash = {}
     hash[:name] = choice[:name]
     hash[:state_url] = url
+    hash[:state_code] = choice[:value]
     state = State.new(hash)
     return state
   end

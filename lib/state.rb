@@ -1,6 +1,6 @@
 class State
   
-  attr_accessor :name, :state_url 
+  attr_accessor :name, :state_url, :state_code 
   
   @@all = []
   
