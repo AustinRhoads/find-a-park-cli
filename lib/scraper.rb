@@ -145,7 +145,7 @@ end
 end  
 
 def self.add_details(choice)
-  binding.pry
+ # binding.pry
   if choice.location == nil
   park_url = choice.url
   doc = Nokogiri::HTML(open(park_url))
