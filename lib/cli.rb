@@ -135,7 +135,8 @@ end
 def display_choice(choice) 
   puts "Park Name:            "+choice.name 
   puts "Park location:        "+ choice.location.gsub("PO Box ", "")
-  puts "States with access:   " + choice.state_code_list.to_s #replace this with state obj list
+  binding.pry
+  puts "States with access:   " + choice.state_code_list.join(", ") #replace this with state obj list
   puts "Park url :            " + choice.url
   puts "Park Phone no.        "+choice.phone
   puts "------------------------------------------------------"

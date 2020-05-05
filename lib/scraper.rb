@@ -136,7 +136,7 @@ arr.each do |x|
   end
   next if Park.all_names.include?(name)
    park = Park.new(name, park_state)
-   park.state_code_list = state_code_list[0]
+   park.state_code_list = state_code_list
    
    #binding.pry
    
