@@ -58,7 +58,7 @@ def activity_options(state)
   arr.each_with_index do |act, index|
     puts "#{index + 1}...#{act[:activity]}"
   end
-  puts "-----------------------"
+  puts "------------------------------------------------------"
   puts "Please enter the activity you wish to do."
   puts "Or enter 0 to see all the parks in #{state.name}." 
 
