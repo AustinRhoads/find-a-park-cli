@@ -30,7 +30,8 @@ def self.all_names
 end
 
 def state_code_list=(list) 
- @state_code_list << list 
+ @state_code_list = list 
+
 end
 
   
