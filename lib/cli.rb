@@ -142,7 +142,7 @@ def display_choice(choice)
 end
 
 def research(state)
-  puts "-----------------------"
+  puts "------------------------------------------------------"
   puts "What would you like to do next?"
   puts ""
   puts "1...Keep searching this state."
