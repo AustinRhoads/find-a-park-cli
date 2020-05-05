@@ -37,7 +37,7 @@ def state_options
     puts "#{index + 1}...#{hash[:name]}"
   end
   
-  puts "-----------------------"
+  puts "------------------------------------------------------"
   puts "Please enter the number of the state you'd wish to explore."
   
   #num = gets.chomp.to_i - 1
@@ -135,7 +135,7 @@ end
 def display_choice(choice) 
   puts "Park Name:            "+choice.name 
   puts "Park location:        "+ choice.location.gsub("PO Box ", "")
-  puts "States with access:   " + choice.state_code_list.to_s
+  puts "States with access:   " + choice.state_code_list.to_s #replace this with state obj list
   puts "Park url :            " + choice.url
   puts "Park Phone no.        "+choice.phone
   puts "------------------------------------------------------"
