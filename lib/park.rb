@@ -36,7 +36,7 @@ end
 
 def all_states
   arr = Scraper.states_array
-  
+  binding.pry
   
 end
   
