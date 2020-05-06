@@ -34,5 +34,10 @@ def state_code_list=(list)
 
 end
 
+def all_states
+  arr = Scraper.states_array
+  
+  
+end
   
 end
