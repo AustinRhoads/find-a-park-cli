@@ -117,7 +117,6 @@ def self.make_parks(arr, state)
 arr.each do |x|
  
   name = ""
- # park_state = state
   activities = []
   park_code = ""
   state_code_list = x.last
@@ -131,7 +130,7 @@ arr.each do |x|
     end
   end
   next if Park.all_names.include?(name)
-   park = Park.new(name)#, park_state)
+   park = Park.new(name)
    park.state_code_list = state_code_list
    park.add_all_states
    activities.each {|a| park.activities << a} 

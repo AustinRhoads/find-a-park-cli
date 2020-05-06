@@ -36,10 +36,14 @@ state_hash.each { |k, v| self.send("#{k}=", v) }
      if finder == [] 
       state = Scraper.scrape_state(hash)
       return state
-     # self.all_states << state
       elsif finder != []
       return finder[0]
-       # self.all_states << finder[0]
+    end
+  end
+  
+  def add_park(park)
+    if self.parks.include?(park) == false
+      self.parks << park
     end
   end
   

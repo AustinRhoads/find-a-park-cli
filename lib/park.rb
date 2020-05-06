@@ -43,7 +43,7 @@ def add_all_states
   array_of_hashes.each do |hash|
     state = State.find_or_make_new(hash)
     self.all_states << state
-    state.parks << self
+    state.add_park(self)
     end
   #binding.pry
   
