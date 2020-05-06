@@ -4,7 +4,7 @@ require 'pry'
 require 'nokogiri'
 
 class Scraper
-  #need to find more parks in alabama and others. search a state value so parks can have multiple states.
+  
   
   
   @@URL = "https://www.nps.gov/findapark/advanced-search.htm"
@@ -33,7 +33,7 @@ class Scraper
    #end of scrape_states_names
  end
   
-
+#randy was here
   
   def self.scrape_state(choice)
     
