@@ -165,6 +165,8 @@ def self.find_in_states_array(code)
     if hash[:value] == code 
       return hash 
     end
+    end
+   # binding.pry
   
 end
   

@@ -35,9 +35,10 @@ def state_code_list=(list)
 end
 
 def all_states
-  arr = Scraper.states_array
+  
   list = self.state_code_list
-  binding.pry
+  arr = list.each {|code| Scraper.find_in_states_array(code)}
+  #binding.pry
   
 end
   
