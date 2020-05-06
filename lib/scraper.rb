@@ -37,10 +37,7 @@ class Scraper
   
   def self.scrape_state(choice)
     
-   # arr = Scraper.states_array
-   
-    #name = choice[:name]
-    #value = choice[:value]
+  
     url = @@URL +"?s=#{choice[:value]}&p=1&v=1"
     hash = {}
     hash[:name] = choice[:name]
@@ -86,20 +83,19 @@ class Scraper
     data_array.shift
     
     big_book = []
-   # binding.pry
+   
      data_array.each do |park_data|
       state_code_list = park_data.gsub(/\"|{|}/, "").split("STATE_CODE_LIST:").pop.split("BANNER")[0].gsub(" ","").split(",")
       park_page = park_data.gsub(/\"|{|}/, "").split(/,/)
       complete_page = park_page << state_code_list 
       big_book << complete_page
       
-     #big_book << park_data.gsub(/\"|{|}/, "").split(/,/) 
+      
     end
    
-    # binding.pry
      search_array = []
-   #binding.pry
-    big_book.each do |x|
+   
+     big_book.each do |x|
       
       x.each_with_index do |b, index|
         
@@ -111,13 +107,13 @@ class Scraper
       end 
       
     end
-    #binding.pry
+    
 Scraper.make_parks(search_array, state)
-  #binding.pry
+  
   end
   
 def self.make_parks(arr, state)
- # binding.pry
+ 
 arr.each do |x|
  
   name = ""
@@ -138,7 +134,7 @@ arr.each do |x|
    park = Park.new(name, park_state)
    park.state_code_list = state_code_list
    
-   #binding.pry
+   
    
    activities.each {|a| park.activities << a} 
    park.activities << "00"
@@ -148,7 +144,7 @@ end
 end  
 
 def self.add_details(choice)
- # binding.pry
+ 
   if choice.location == nil
   park_url = choice.url
   doc = Nokogiri::HTML(open(park_url))

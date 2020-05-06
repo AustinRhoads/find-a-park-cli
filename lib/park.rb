@@ -36,6 +36,7 @@ end
 
 def all_states
   arr = Scraper.states_array
+  list = self.state_code_list
   binding.pry
   
 end
