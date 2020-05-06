@@ -133,9 +133,7 @@ arr.each do |x|
   next if Park.all_names.include?(name)
    park = Park.new(name, park_state)
    park.state_code_list = state_code_list
-   
-   
-   
+   park.add_all_states
    activities.each {|a| park.activities << a} 
    park.activities << "00"
    park.url = @@BASE_PATH + "/" + park_code + "/" + @@SUFFIX

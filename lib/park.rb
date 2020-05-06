@@ -1,10 +1,11 @@
 class Park
   @@all = []
   attr_accessor :name, :state, :url, :location, :phone
-  attr_reader :state_code_list
+  attr_reader :state_code_list, :all_states
   
   def initialize(name, state)
     @state_code_list = []
+    @all_states = []
     @name = name 
     state.parks << self 
     self.state = state
@@ -34,10 +35,24 @@ def state_code_list=(list)
 
 end
 
-def all_states
+def add_all_states 
   
+  array_of_hashes = []
   list = self.state_code_list
-  arr = list.each {|code| Scraper.find_in_states_array(code)}
+  list.each {|code| array_of_hashes << Scraper.find_in_states_array(code)}
+  array_of_hashes.each do |hash|
+    state = State.find_or_make_new(hash)
+    self.all_states << state
+   # finder = State.find_by_name(hash[:name])
+   # binding.pry
+    # if finder == [] 
+    #  state = Scraper.scrape_state(hash)
+    #  self.all_states << state
+    #  elsif finder != [] 
+    #    self.all_states << finder[0]
+   # end
+   
+    end
   #binding.pry
   
 end
