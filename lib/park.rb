@@ -3,12 +3,12 @@ class Park
   attr_accessor :name, :state, :url, :location, :phone
   attr_reader :state_code_list, :all_states
   
-  def initialize(name, state)
+  def initialize(name)#, state)
     @state_code_list = []
     @all_states = []
     @name = name 
-    state.parks << self 
-    self.state = state
+    #state.parks << self 
+    #self.state = state
     @activities = []
     @@all << self
     
@@ -43,15 +43,7 @@ def add_all_states
   array_of_hashes.each do |hash|
     state = State.find_or_make_new(hash)
     self.all_states << state
-   # finder = State.find_by_name(hash[:name])
-   # binding.pry
-    # if finder == [] 
-    #  state = Scraper.scrape_state(hash)
-    #  self.all_states << state
-    #  elsif finder != [] 
-    #    self.all_states << finder[0]
-   # end
-   
+    state.parks << self
     end
   #binding.pry
   

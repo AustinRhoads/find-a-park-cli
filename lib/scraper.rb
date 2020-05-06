@@ -117,7 +117,7 @@ def self.make_parks(arr, state)
 arr.each do |x|
  
   name = ""
-  park_state = state
+ # park_state = state
   activities = []
   park_code = ""
   state_code_list = x.last
@@ -131,7 +131,7 @@ arr.each do |x|
     end
   end
   next if Park.all_names.include?(name)
-   park = Park.new(name, park_state)
+   park = Park.new(name)#, park_state)
    park.state_code_list = state_code_list
    park.add_all_states
    activities.each {|a| park.activities << a} 
@@ -148,13 +148,9 @@ def self.add_details(choice)
   doc = Nokogiri::HTML(open(park_url))
   choice.location = doc.css("p.adr span[itemprop='addressLocality']").text + " " + doc.css("p.adr span[itemprop='addressRegion']").text + " " + doc.css("p.adr span[itemprop='postalCode']").text
   choice.phone = doc.css('span.tel').text.gsub(/\n/, "")
-  
-end
+  end
 end
 
-def self.add_states_to_park(park, arr)
-  
-end
 
 def self.find_in_states_array(code)
   
@@ -164,7 +160,6 @@ def self.find_in_states_array(code)
       return hash 
     end
     end
-   # binding.pry
   
 end
   
