@@ -157,6 +157,16 @@ end
 def self.add_states_to_park(park, arr)
   
 end
+
+def self.find_in_states_array(code)
+  
+  arr = Scraper.states_array
+  arr.each do |hash|
+    if hash[:value] == code 
+      return hash 
+    end
+  
+end
   
   
   #end of scraper class
