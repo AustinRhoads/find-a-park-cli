@@ -43,8 +43,7 @@ def state_options
   num = valid_selection(arr)
   
   choice = arr[num]
-  #binding.pry
-  #state = Scraper.scrape_state(choice)
+  
   state = State.find_or_make_new(choice)
   puts state.name
   
@@ -96,7 +95,7 @@ end
 
 def select_a_park(search_results)
 
-  puts "-----------------------"
+  puts "------------------------------------------------------"
   puts "Please enter the number of the park you'd wish to explore."
   if search_results.length >= 2 == true
   puts "Or enter 0 to see all listed park's details."
