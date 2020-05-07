@@ -7,8 +7,6 @@ class Park
     @state_code_list = []
     @all_states = []
     @name = name 
-    #state.parks << self 
-    #self.state = state
     @activities = []
     @@all << self
     

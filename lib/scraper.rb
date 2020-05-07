@@ -46,7 +46,7 @@ class Scraper
   end
   
   
-  def self.scrape_options(url)
+  def self.scrape_activity_options(url)
     
     doc = Nokogiri::HTML(open(url))
        

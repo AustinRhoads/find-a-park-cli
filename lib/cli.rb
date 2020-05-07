@@ -54,7 +54,7 @@ end
 
 
 def activity_options(state)
-  arr = Scraper.scrape_options(state.state_url)
+  arr = Scraper.scrape_activity_options(state.state_url)
   arr.each_with_index do |act, index|
     puts "#{index + 1}...#{act[:activity]}"
   end
@@ -75,7 +75,6 @@ def valid_selection(arr)
     if num >= arr.length 
     puts "Sorry, that is not a valid selection. Please try again." 
     else
-   # return arr[num]
    return num
   end
   end
