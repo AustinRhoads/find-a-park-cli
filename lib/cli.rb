@@ -8,9 +8,11 @@ class CommandLineInterface
   
   @@URL = "https://www.nps.gov/findapark/advanced-search.htm" 
   @@ex_url = "https://www.nps.gov/findapark/find_a_park.json?dt=1586816373644"
+  @@activity_options_3 = []
   
   
  def run 
+   #make_activity_list
    state = state_options
    state_search(state)
    
@@ -53,9 +55,10 @@ end
 
 
 def activity_options(state)
-  arr = Scraper.scrape_activity_options(state.state_url)
-Scraper.scrape_activity_options(state.state_url)
- binding.pry
+  
+  make_activity_list(@@URL)
+arr = @@activity_options_3
+# binding.pry
   arr.each_with_index do |act, index|
     puts "#{index + 1}...#{act[:activity]}"
   end
@@ -162,7 +165,11 @@ def research(state)
 
 end
 
-
+def make_activity_list(url)
+  if @@activity_options_3 == [] 
+    @@activity_options_3 = Scraper.scrape_activity_options(url)
+  end 
+end
 
 
 #end of class
