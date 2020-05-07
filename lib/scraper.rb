@@ -5,32 +5,10 @@ require 'nokogiri'
 
 class Scraper
   
- # @@states_array = []
-  #@@activities_array = []
-  
-  #def initialize 
-  #  @@states_array = Scraper.scrape_state_names(url)
-  #  @@activities_array = Scraper.scrape_activity_options(url)
-#  end
-  
- # def self.states_array 
-  # @@states_array 
-  #end 
-  
-  #def self.activities_array 
-  #  @@activities_array
-  #end 
-  
-  
-  
   @@URL = "https://www.nps.gov/findapark/advanced-search.htm"
   @@BASE_PATH = "https://www.nps.gov"
   @@SUFFIX = "index.htm"
-  @@activity_options_1 = []
   
-  def self.activity_options_1
-    @@activity_options_1
-  end
  
   def self.scrape_state_names(url)
     
