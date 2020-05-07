@@ -17,7 +17,6 @@ class Scraper
    
     doc = Nokogiri::HTML(open(url))
     
-   
     doc.css('select#form-park option').each do |state_name|
     
     next if state_name.text == "State"
@@ -33,7 +32,6 @@ class Scraper
    #end of scrape_states_names
  end
   
-#randy was here
   
   def self.scrape_state(choice)
     
@@ -46,6 +44,7 @@ class Scraper
     state = State.new(hash)
     return state
   end
+  
   
   def self.scrape_options(url)
     
@@ -90,8 +89,7 @@ class Scraper
       complete_page = park_page << state_code_list 
       big_book << complete_page
       
-      
-    end
+      end
    
      search_array = []
    
@@ -101,9 +99,7 @@ class Scraper
         
         if x.last.include?(state.state_code)
             search_array << x
-      
-        end
-        
+       end
       end 
       
     end

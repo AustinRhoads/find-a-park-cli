@@ -40,10 +40,6 @@ def state_options
   puts "------------------------------------------------------"
   puts "Please enter the number of the state you'd wish to explore."
   
-  #num = gets.chomp.to_i - 1
-  
-  #choice = valid_selection(arr)
-  
   num = valid_selection(arr)
   
   choice = arr[num]
@@ -141,7 +137,7 @@ end
 def display_choice(choice) 
   puts "Park Name:            " + choice.name 
   puts "Park location:        " + choice.location.gsub("PO Box ", "")
-  puts "States with access:   " + choice.state_code_list.join(", ") #replace this with state obj list
+  puts "States with access:   " + choice.state_code_list.join(", ") 
   puts "Park url :            " + choice.url
   puts "Park Phone no.        " + choice.phone
   puts "------------------------------------------------------"

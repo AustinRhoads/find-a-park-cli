@@ -45,8 +45,9 @@ def add_all_states
     self.all_states << state
     state.add_park(self)
     end
-  #binding.pry
+  
   
 end
   
+  #end of class
 end
