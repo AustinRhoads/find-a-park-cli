@@ -43,9 +43,9 @@ def state_options
   num = valid_selection(arr)
   
   choice = arr[num]
-  
-  state = Scraper.scrape_state(choice)
-  
+  #binding.pry
+  #state = Scraper.scrape_state(choice)
+  state = State.find_or_make_new(choice)
   puts state.name
   
   state

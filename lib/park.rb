@@ -3,13 +3,13 @@ class Park
   attr_accessor :name, :state, :url, :location, :phone
   attr_reader :state_code_list, :all_states
   
-  def initialize(name)#, state)
-    @state_code_list = []
+  def initialize(name, state_code_list)
+    @state_code_list = state_code_list
     @all_states = []
     @name = name 
     @activities = []
     @@all << self
-    
+    self.add_all_states
   end
   
   def activities

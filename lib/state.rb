@@ -42,6 +42,7 @@ state_hash.each { |k, v| self.send("#{k}=", v) }
   end
   
   def add_park(park)
+   # binding.pry
     if self.parks.include?(park) == false
       self.parks << park
     end
