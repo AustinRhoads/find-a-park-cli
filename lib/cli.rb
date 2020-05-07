@@ -53,7 +53,9 @@ end
 
 
 def activity_options(state)
-  arr = Scraper.scrape_activity_options(state.state_url)
+#  arr = Scraper.scrape_activity_options(state.state_url)
+Scraper.scrape_activity_options(state.state_url)
+ binding.pry
   arr.each_with_index do |act, index|
     puts "#{index + 1}...#{act[:activity]}"
   end
