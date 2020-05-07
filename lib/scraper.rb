@@ -129,6 +129,7 @@ arr.each do |x|
    activities.each {|a| park.activities << a} 
    park.activities << "00"
    park.url = @@BASE_PATH + "/" + park_code + "/" + @@SUFFIX
+   Scraper.add_details(park)
 end
 
 end  

@@ -58,9 +58,7 @@ end
 
 def activity_options(state)
   
- # make_activity_list(@@URL)
   arr = @@activity_options
-# binding.pry
   arr.each_with_index do |act, index|
     puts "#{index + 1}...#{act[:activity]}"
   end
@@ -115,7 +113,7 @@ def select_a_park(search_results)
     end
   else
   choice = search_results[num]
-  more_details(choice)
+ # more_details(choice)
   display_choice(choice)
   end
   return choice
