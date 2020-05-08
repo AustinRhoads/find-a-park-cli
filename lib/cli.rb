@@ -76,6 +76,7 @@ def valid_selection(arr)
   until num < arr.length 
    num = gets.chomp.to_i - 1
     puts ""
+    puts "Loading details..."
     if num >= arr.length 
     puts "Sorry, that is not a valid selection. Please try again." 
     else
@@ -87,7 +88,7 @@ end
 
 
 def results(state, activity)
- 
+  
   arr = []
 
   state.parks.each do |park|
