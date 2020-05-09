@@ -146,7 +146,7 @@ def display_choice(choice)
 #puts String.modes
 #puts String.color_samples
   puts "Park Name:            ".green.bold + choice.name.green.bold
-  puts "All activities:       ".light_cyan + available_activities(choice).join(", ").light_cyan
+  #puts "All activities:       ".light_cyan + available_activities(choice).join(", ").light_cyan
   puts "Park location:        ".light_cyan + choice.location.gsub("PO Box ", "").light_cyan
   puts "States with access:   ".light_cyan + choice.state_code_list.join(", ").light_cyan 
   puts "Park url :            ".light_cyan + choice.url.light_cyan
@@ -185,24 +185,26 @@ def make_states_array
   end 
 end
 
-def available_activities(park)
-  binding.pry
-  arr = []
-  park.activities.each do |code|
-    next if code == "00"
-    activity = return_activity_name_from_code(code)
-    arr << activity
-  end
-  return arr
-end 
+#def available_activities(park)
+ # arr = []
+  #park.activities.each do |code|
+   # next if code == "00"
+    #activity = return_activity_name_from_code(code)
+    #arr << activity
+  #end
+  
+  #return arr
+#end 
 
-def return_activity_name_from_code(code) 
-  @@activity_options.each do |hash|
-    if hash[:value] == code 
-      return hash[:activity]
-    end
-  end
-end
+#def return_activity_name_from_code(code)
+ # activity_name = ""
+#  @@activity_options.each do |hash|
+ #   if hash[:value] == code 
+  #    activity_name = hash[:activity]
+  #  end
+#  end
+#  return activity_name
+#end
 
 #end of class
 
