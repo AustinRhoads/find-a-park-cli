@@ -49,7 +49,7 @@ def state_options
   choice = arr[num]
   
   state = State.find_or_make_new(choice)
-  puts state.name
+  puts state.name.green.bold
   
   state
 
@@ -60,11 +60,11 @@ def activity_options(state)
   
   arr = @@activity_options
   arr.each_with_index do |act, index|
-    puts "#{index + 1}...#{act[:activity].light_red}"
+    puts "#{index + 1}...#{act[:activity].light_cyan}"
   end
   puts "------------------------------------------------------"
   puts "Please enter the number of the activity you wish to do."
-  puts "Or enter 0 to see all the parks in #{state.name}." 
+  puts "Or enter " + "0".light_cyan + " to see all the parks in #{state.name.green.bold}." 
 
   num = valid_selection(arr)
   arr[num]
@@ -81,7 +81,7 @@ def valid_selection(arr)
     puts ""
     puts ""
     if num >= arr.length 
-    puts "Sorry, that is not a valid selection. Please try again." 
+    puts "Sorry, that is not a valid selection. Please try again.".light_red 
     else
    return num
   end
@@ -107,7 +107,7 @@ def select_a_park(search_results)
   puts "------------------------------------------------------"
   puts "Please enter the number of the park you'd wish to explore."
   if search_results.length >= 2 == true
-  puts "Or enter 0 to see all listed park's details."
+  puts "Or enter " + "0".green.bold + "to see all listed park's details."
   end
   num = gets.chomp.to_i - 1
   if num == -1
@@ -127,12 +127,12 @@ end
 
 def display_results(search_results, state, activity)
     if search_results.length == 1 
-    puts "#{search_results.length}".light_red + " result found for #{activity[:activity].light_red} in #{state.name.light_red}"
+    puts "#{search_results.length}".green.bold + " result found for #{activity[:activity].green.bold} in #{state.name.green.bold}"
    else
-    puts "#{search_results.length}".light_red + " results found for #{activity[:activity].light_red} in #{state.name.light_red}"
+    puts "#{search_results.length}".green.bold + " results found for #{activity[:activity].green.bold} in #{state.name.green.bold}"
    end
      search_results.each_with_index do |park, index|
-     puts "#{index + 1}...#{park.name.green.bold}"
+     puts "#{index + 1}...#{park.name.light_cyan}"
    end
 end
 
@@ -157,9 +157,9 @@ def research(state)
   
   puts "What would you like to do next?"
   puts ""
-  puts "1...Keep searching this state."
-  puts "2...Search a different State."
-  puts "3...Exit"
+  puts "1..." + "Keep searching this state.".light_cyan
+  puts "2..." + "Search a different State.".light_cyan
+  puts "3..." + "Exit".light_red
   next_action = gets.chomp
   case next_action 
   when "1"
