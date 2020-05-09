@@ -1,7 +1,7 @@
 require_relative "../lib/scraper.rb"
 require_relative "../lib/state.rb"
 require_relative "../lib/park.rb"
-
+require "colorize"
 
 
 class CommandLineInterface
@@ -142,7 +142,7 @@ def more_details(choice)
 end
 
 def display_choice(choice) 
-  puts "Park Name:            " + choice.name 
+  puts "Park Name:            ".colorize(:green) + choice.name.colorize(:green)
   puts "Park location:        " + choice.location.gsub("PO Box ", "")
   puts "States with access:   " + choice.state_code_list.join(", ") 
   puts "Park url :            " + choice.url
