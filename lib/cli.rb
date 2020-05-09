@@ -38,7 +38,7 @@ def state_options
  arr = @@state_options
 
   arr.each_with_index do |hash, index|
-    puts "#{index + 1}...#{hash[:name]}"
+    puts "#{index + 1}...#{hash[:name].light_cyan}"
   end
   
   puts "------------------------------------------------------"
@@ -60,10 +60,10 @@ def activity_options(state)
   
   arr = @@activity_options
   arr.each_with_index do |act, index|
-    puts "#{index + 1}...#{act[:activity]}"
+    puts "#{index + 1}...#{act[:activity].light_red}"
   end
   puts "------------------------------------------------------"
-  puts "Please enter the activity you wish to do."
+  puts "Please enter the number of the activity you wish to do."
   puts "Or enter 0 to see all the parks in #{state.name}." 
 
   num = valid_selection(arr)
@@ -127,12 +127,12 @@ end
 
 def display_results(search_results, state, activity)
     if search_results.length == 1 
-    puts "#{search_results.length} result found for #{activity[:activity]} in #{state.name}"
+    puts "#{search_results.length}".light_red + " result found for #{activity[:activity].light_red} in #{state.name.light_red}"
    else
-    puts "#{search_results.length} results found for #{activity[:activity]} in #{state.name}"
+    puts "#{search_results.length}".light_red + " results found for #{activity[:activity].light_red} in #{state.name.light_red}"
    end
      search_results.each_with_index do |park, index|
-     puts "#{index + 1}...#{park.name}"
+     puts "#{index + 1}...#{park.name.green.bold}"
    end
 end
 
@@ -141,12 +141,15 @@ def more_details(choice)
 
 end
 
-def display_choice(choice) 
-  puts "Park Name:            ".colorize(:green) + choice.name.colorize(:green)
-  puts "Park location:        " + choice.location.gsub("PO Box ", "")
-  puts "States with access:   " + choice.state_code_list.join(", ") 
-  puts "Park url :            " + choice.url
-  puts "Park Phone no.        " + choice.phone
+def display_choice(choice)
+ # puts String.colors
+#puts String.modes
+#puts String.color_samples
+  puts "Park Name:            ".green.bold + choice.name.green.bold
+  puts "Park location:        ".light_cyan + choice.location.gsub("PO Box ", "").light_cyan
+  puts "States with access:   ".light_cyan + choice.state_code_list.join(", ").light_cyan 
+  puts "Park url :            ".light_cyan + choice.url.light_cyan
+  puts "Park Phone no.        ".light_cyan + choice.phone.light_cyan
   puts "------------------------------------------------------"
 end
 
