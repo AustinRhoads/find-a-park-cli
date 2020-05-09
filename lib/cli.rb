@@ -64,7 +64,7 @@ def activity_options(state)
   end
   puts "------------------------------------------------------"
   puts "Please enter the number of the activity you wish to do."
-  puts "Or enter " + "0".light_cyan + " to see all the parks in #{state.name.green.bold}." 
+  puts "Or enter " + "0".green.bold + " to see all the parks in #{state.name.green.bold}." 
 
   num = valid_selection(arr)
   arr[num]
@@ -107,7 +107,7 @@ def select_a_park(search_results)
   puts "------------------------------------------------------"
   puts "Please enter the number of the park you'd wish to explore."
   if search_results.length >= 2 == true
-  puts "Or enter " + "0".green.bold + "to see all listed park's details."
+  puts "Or enter " + "0".green.bold + " to see all listed park's details."
   end
   num = gets.chomp.to_i - 1
   if num == -1
