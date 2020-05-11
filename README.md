@@ -1,7 +1,7 @@
 
 # Enter the Woods
 
-The Find A Park CLI app is a Ruby gem that beckons you to explore nature while doing the activities you love most!
+The Find A Park CLI app is a Ruby gem that beckons you to explore the country's National Parks while doing the activities you love most! Users can choose a state and select from an array of activities to see a list of parks that match the user's criteria.
 
 ## Installation
 
