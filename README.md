@@ -1,7 +1,7 @@
 
 # Enter the Wild
 
-The Find A Park CLI app is a Ruby gem that beckons you to explore the country's National Parks while doing the activities you love most! Users can choose a state, and select from an array of activities to see a list of parks that match the user's criteria.
+The Find A Park CLI app is a Ruby gem that beckons you to explore the country's National Parks while doing the activities that you love most! Users can choose a state, and select from an array of activities to see a list of parks that match the user's criteria.
 
 ## Installation
 
@@ -21,7 +21,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+After Installation execute:
+$ ruby ./bin/run.rb
+enter the number of the corresponding state and activity when prompted.
 
 ## Development
 
