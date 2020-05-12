@@ -77,9 +77,7 @@ def valid_selection(arr)
    num = gets.chomp.to_i - 1
     puts ""
     puts "Loading details..."
-    puts ""
-    puts ""
-    puts ""
+binding.pry
     if num >= arr.length 
     puts "Sorry, that is not a valid selection. Please try again.".light_red 
     else
@@ -142,9 +140,9 @@ def more_details(choice)
 end
 
 def display_choice(choice)
- # puts String.colors
-#puts String.modes
-#puts String.color_samples
+  puts ""
+  puts ""
+  puts ""
   puts "Park Name:            ".green.bold + choice.name.green.bold
   #puts "All activities:       ".light_cyan + available_activities(choice).join(", ").light_cyan
   puts "Park location:        ".light_cyan + choice.location.gsub("PO Box ", "").light_cyan
