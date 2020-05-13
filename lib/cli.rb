@@ -77,7 +77,7 @@ def valid_selection(arr)
    num = gets.chomp.to_i - 1
     puts ""
     puts "Loading details..."
-binding.pry
+#binding.pry
     if num >= arr.length 
     puts "Sorry, that is not a valid selection. Please try again.".light_red 
     else
