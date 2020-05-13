@@ -140,6 +140,7 @@ def more_details(choice)
 end
 
 def display_choice(choice)
+  Park.all_urls
   puts ""
   puts ""
   puts ""

@@ -124,7 +124,7 @@ arr.each do |x|
     park_code = b.gsub("PARK_CODE:", "")
     end
   end
-  next if Park.all_names.include?(name)
+  next if Park.all_urls.include?(@@BASE_PATH + "/" + park_code + "/" + @@SUFFIX)
    park = Park.new(name, state_code_list)
    activities.each {|a| park.activities << a} 
    park.activities << "00"

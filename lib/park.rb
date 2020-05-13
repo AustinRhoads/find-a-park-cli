@@ -46,6 +46,14 @@ def add_all_states
   
   
 end
+
+    def self.all_urls 
+      arr = []
+      Park.all.each do |park|
+        arr << park.url
+      end 
+      return arr
+    end
   
   #end of class
 end
