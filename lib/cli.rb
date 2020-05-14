@@ -14,13 +14,13 @@ class CommandLineInterface
  def run 
    make_activity_list(@@URL)
    make_states_array
-   state = state_options
+   state = state_options_menu
    state_search(state)
    
 end
 
 def state_search(state)
-  activity = activity_options(state)
+  activity = activity_options_menu(state)
   Scraper.search_parks(@@ex_url, state, activity)
   search_results = results(state, activity)
   display_results(search_results, state, activity)
@@ -33,7 +33,7 @@ def state_search(state)
 end
 
 
-def state_options 
+def state_options_menu 
  
  arr = @@state_options
 
@@ -56,7 +56,7 @@ def state_options
 end
 
 
-def activity_options(state)
+def activity_options_menu(state)
   
   arr = @@activity_options
   arr.each_with_index do |act, index|
