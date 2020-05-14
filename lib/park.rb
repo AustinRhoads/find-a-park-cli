@@ -7,13 +7,13 @@ class Park
     @state_code_list = state_code_list
     @all_states = []
     @name = name 
-    @activities = []
+    @activity_codes = []
     @@all << self
     self.add_all_states
   end
   
-  def activities
-    @activities
+  def activity_codes
+    @activity_codes
   end
 
 def self.all 

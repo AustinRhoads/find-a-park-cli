@@ -112,22 +112,22 @@ def self.make_parks(arr, state)
 arr.each do |x|
  
   name = ""
-  activities = []
+  activity_codes = []
   park_code = ""
   state_code_list = x.last
   x.each do |b|
     if b.include?("PARK_NAME")
       name = b.gsub("PARK_NAME:", "")
     elsif b.include?("activity_id:") 
-    activities << b.gsub(/\D/, "")
+    activity_codes << b.gsub(/\D/, "")
     elsif b.include?("PARK_CODE")
     park_code = b.gsub("PARK_CODE:", "")
     end
   end
   next if Park.all_urls.include?(@@BASE_PATH + "/" + park_code + "/" + @@SUFFIX)
    park = Park.new(name, state_code_list)
-   activities.each {|a| park.activities << a} 
-   park.activities << "00"
+   activity_codes.each {|a| park.activity_codes << a} 
+   park.activity_codes << "00"
    park.url = @@BASE_PATH + "/" + park_code + "/" + @@SUFFIX
    Scraper.add_details(park)
 end

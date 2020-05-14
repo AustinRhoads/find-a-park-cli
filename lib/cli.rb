@@ -93,7 +93,7 @@ def results(state, activity)
   arr = []
 
   state.parks.each do |park|
-    if park.activities.include?(activity[:value])
+    if park.activity_codes.include?(activity[:value])
       arr << park 
     end
   end 
@@ -182,6 +182,14 @@ def make_states_array
   if @@state_options == []
     @@state_options = Scraper.states_array
   end 
+end
+
+def self.activity_options
+  @@activity_options
+end
+
+def self.state_options 
+  @@state_options
 end
 
 #def available_activities(park)
