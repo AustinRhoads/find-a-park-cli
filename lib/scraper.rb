@@ -146,7 +146,8 @@ end
 
 def self.find_in_states_array(code)
   
-  arr = Scraper.states_array
+  
+  arr = CommandLineInterface.state_options
   arr.each do |hash|
     if hash[:value] == code 
       return hash 
