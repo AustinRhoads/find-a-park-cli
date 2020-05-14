@@ -1,6 +1,7 @@
 require_relative "../lib/scraper.rb"
 require_relative "../lib/state.rb"
 require_relative "../lib/park.rb"
+require_relative "../lib/activity.rb"
 require "colorize"
 
 
@@ -59,8 +60,8 @@ end
 def activity_options_menu(state)
   
   arr = @@activity_options
-  arr.each_with_index do |act, index|
-    puts "#{index + 1}...#{act[:activity].light_cyan}"
+  arr.each_with_index do |activity, index|
+    puts "#{index + 1}...#{activity[:name].light_cyan}"
   end
   puts "------------------------------------------------------"
   puts "Please enter the number of the activity you wish to do."
@@ -93,7 +94,7 @@ def results(state, activity)
   arr = []
 
   state.parks.each do |park|
-    if park.activity_codes.include?(activity[:value])
+    if park.activity_codes.include?(activity[:code])
       arr << park 
     end
   end 
@@ -125,9 +126,9 @@ end
 
 def display_results(search_results, state, activity)
     if search_results.length == 1 
-    puts "#{search_results.length}".green.bold + " result found for #{activity[:activity].green.bold} in #{state.name.green.bold}"
+    puts "#{search_results.length}".green.bold + " result found for #{activity[:name].green.bold} in #{state.name.green.bold}"
    else
-    puts "#{search_results.length}".green.bold + " results found for #{activity[:activity].green.bold} in #{state.name.green.bold}"
+    puts "#{search_results.length}".green.bold + " results found for #{activity[:name].green.bold} in #{state.name.green.bold}"
    end
      search_results.each_with_index do |park, index|
      puts "#{index + 1}...#{park.name.light_cyan}"
@@ -140,7 +141,8 @@ def more_details(choice)
 end
 
 def display_choice(choice)
-  Park.all_urls
+  #Park.all_urls
+  binding.pry
   puts ""
   puts ""
   puts ""
@@ -175,12 +177,14 @@ end
 def make_activity_list(url)
   if @@activity_options == [] 
     @@activity_options = Scraper.scrape_activity_options(url)
+    @@activity_options.each {|hash| Activity.new(hash)}
   end 
 end 
 
 def make_states_array 
   if @@state_options == []
     @@state_options = Scraper.states_array
+    
   end 
 end
 

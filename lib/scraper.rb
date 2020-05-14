@@ -21,7 +21,7 @@ class Scraper
     next if state_name.text == "State"
       hash = {}
       hash[:name] = state_name.text
-      hash[:value] = state_name.css('/@value').text
+      hash[:code] = state_name.css('/@value').text
       arr << hash
     end
   
@@ -35,11 +35,11 @@ class Scraper
   def self.scrape_state(choice)
     
   
-    url = @@URL +"?s=#{choice[:value]}&p=1&v=1"
+    url = @@URL +"?s=#{choice[:code]}&p=1&v=1"
     hash = {}
     hash[:name] = choice[:name]
     hash[:state_url] = url
-    hash[:state_code] = choice[:value]
+    hash[:state_code] = choice[:code]
     state = State.new(hash)
     return state
   end
@@ -53,12 +53,12 @@ class Scraper
     
     doc.css('select#form-activity option').each do |activity|
       hash = {}
-      hash[:activity] = activity.text 
-      hash[:value] = activity.css('/@value').text
+      hash[:name] = activity.text 
+      hash[:code] = activity.css('/@value').text
       activity_arr << hash 
     end
     
-    activity_arr.push({:activity => "all parks", :value => "00"})
+    activity_arr.push({:name => "all parks", :code => "00"})
     
     return activity_arr
     
@@ -148,7 +148,7 @@ def self.find_in_states_array(code)
   
   arr = CommandLineInterface.state_options
   arr.each do |hash|
-    if hash[:value] == code 
+    if hash[:code] == code 
       return hash 
     end
     end
