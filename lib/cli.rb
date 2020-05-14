@@ -141,8 +141,6 @@ def more_details(choice)
 end
 
 def display_choice(choice)
-  #Park.all_urls
-  binding.pry
   puts ""
   puts ""
   puts ""
