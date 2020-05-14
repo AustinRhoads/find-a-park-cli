@@ -4,6 +4,7 @@ class Park
   attr_reader :state_code_list, :all_states
   
   def initialize(name, state_code_list, activity_codes)
+    #binding.pry
     @state_code_list = state_code_list
     @all_states = []
     @name = name 
@@ -56,6 +57,7 @@ end
   end
 
 def add_all_activities
+ # binding.pry
  codes = self.activity_codes
  codes.each do |code|
    self.activities << Activity.find_by_code(code)

@@ -59,9 +59,10 @@ end
 
 def activity_options_menu(state)
   
-  arr = @@activity_options
+  #arr = @@activity_options
+  arr = Activity.all
   arr.each_with_index do |activity, index|
-    puts "#{index + 1}...#{activity[:name].light_cyan}"
+    puts "#{index + 1}...#{activity.name.light_cyan}"
   end
   puts "------------------------------------------------------"
   puts "Please enter the number of the activity you wish to do."
@@ -90,11 +91,11 @@ end
 
 
 def results(state, activity)
-  
+ # binding.pry
   arr = []
 
   state.parks.each do |park|
-    if park.activity_codes.include?(activity[:code])
+    if park.activities.include?(activity)
       arr << park 
     end
   end 
@@ -126,9 +127,9 @@ end
 
 def display_results(search_results, state, activity)
     if search_results.length == 1 
-    puts "#{search_results.length}".green.bold + " result found for #{activity[:name].green.bold} in #{state.name.green.bold}"
+    puts "#{search_results.length}".green.bold + " result found for #{activity.name.green.bold} in #{state.name.green.bold}"
    else
-    puts "#{search_results.length}".green.bold + " results found for #{activity[:name].green.bold} in #{state.name.green.bold}"
+    puts "#{search_results.length}".green.bold + " results found for #{activity.name.green.bold} in #{state.name.green.bold}"
    end
      search_results.each_with_index do |park, index|
      puts "#{index + 1}...#{park.name.light_cyan}"
