@@ -11,4 +11,12 @@ class Activity
     @@all
   end
   
+  def self.find_by_code(code)
+    Activity.all.each do |act|
+      if act.code == code 
+        return act 
+      end
+    end
+  end
+  
 end

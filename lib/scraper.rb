@@ -125,8 +125,8 @@ arr.each do |x|
     end
   end
   next if Park.all_urls.include?(@@BASE_PATH + "/" + park_code + "/" + @@SUFFIX)
-   park = Park.new(name, state_code_list)
-   activity_codes.each {|a| park.activity_codes << a} 
+   park = Park.new(name, state_code_list, activity_codes)
+   #activity_codes.each {|a| park.activity_codes << a} 
    park.activity_codes << "00"
    park.url = @@BASE_PATH + "/" + park_code + "/" + @@SUFFIX
    Scraper.add_details(park)
