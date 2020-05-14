@@ -146,7 +146,6 @@ end
 
 def self.find_in_states_array(code)
   
-  
   arr = CommandLineInterface.state_options
   arr.each do |hash|
     if hash[:value] == code 
