@@ -3,6 +3,7 @@ require_relative "../lib/state.rb"
 require_relative "../lib/park.rb"
 require_relative "../lib/activity.rb"
 require "colorize"
+require "ruby-progressbar"
 
 
 class CommandLineInterface

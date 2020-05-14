@@ -2,6 +2,7 @@
 require 'open-uri'
 require 'pry'
 require 'nokogiri'
+require 'ruby-progressbar'
 
 class Scraper
   
@@ -108,8 +109,10 @@ Scraper.make_parks(search_array, state)
   end
   
 def self.make_parks(arr, state)
- 
+ bar = ProgressBar.create(:total => arr.length)
 arr.each do |x|
+ bar.increment
+ 
  
   name = ""
   activity_codes = []
