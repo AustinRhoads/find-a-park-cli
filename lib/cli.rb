@@ -78,8 +78,8 @@ def valid_selection(arr)
    num = arr.length + 1
   until num < arr.length 
    num = gets.chomp.to_i - 1
-    puts ""
-    puts "Loading details..."
+    #puts ""
+    #puts "Loading details..."
 #binding.pry
     if num >= arr.length 
     puts "Sorry, that is not a valid selection. Please try again.".light_red 
@@ -159,14 +159,13 @@ def research(state)
   
   puts "What would you like to do next?"
   puts ""
-  puts "1..." + "Keep searching this state.".light_cyan
-  puts "2..." + "Search a different State.".light_cyan
-  puts "3..." + "Exit".light_red
-  next_action = gets.chomp
+  arr = ["1..." + "Keep searching this state.".light_cyan, "2..." + "Search a different State.".light_cyan, "3..." + "Exit".light_red]
+  arr.each { |option| puts option}
+  next_action = valid_selection(arr) + 1 
   case next_action 
-  when "1"
+  when 1
     state_search(state)
-  when "2" 
+  when 2 
       run
   else 
     puts "Thanks for using the Find-a-Park cli app!"

@@ -109,6 +109,8 @@ Scraper.make_parks(search_array, state)
   end
   
 def self.make_parks(arr, state)
+  puts ""
+  puts "Loading details..."
  bar = ProgressBar.create(:total => arr.length)
 arr.each do |x|
  bar.increment
