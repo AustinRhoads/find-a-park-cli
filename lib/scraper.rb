@@ -112,8 +112,8 @@ def self.make_parks(arr, state)
   puts ""
   puts "Loading details..."
  bar = ProgressBar.create(:total => arr.length)
-arr.each do |x|
- bar.increment
+  arr.each do |x|
+  bar.increment
  
  
   name = ""

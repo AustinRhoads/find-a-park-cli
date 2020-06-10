@@ -76,12 +76,13 @@ end
 def valid_selection(arr)
   
    num = arr.length + 1
-  until num < arr.length 
+  # num.to_i
+  until num < arr.length && (num > -2)
+    #while num > arr.length && (num < -2)
+
    num = gets.chomp.to_i - 1
-    #puts ""
-    #puts "Loading details..."
-#binding.pry
-    if num >= arr.length 
+   #binding.pry
+    if num >= arr.length || num <= -2
     puts "Sorry, that is not a valid selection. Please try again.".light_red 
     else
    return num
