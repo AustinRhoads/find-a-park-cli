@@ -73,27 +73,27 @@ def activity_options_menu(state)
   arr[num]
 end
 
-def valid_selection(arr)
+  def valid_selection(arr)
   
    num = arr.length + 1
-  # num.to_i
-  until num < arr.length && (num > -2)
-    #while num > arr.length && (num < -2)
 
-   num = gets.chomp.to_i - 1
-   #binding.pry
-    if num >= arr.length || num <= -2
-    puts "Sorry, that is not a valid selection. Please try again.".light_red 
-    else
-   return num
+    until num < arr.length && (num > -2) && !num.match?(/\D/)
+      num = gets.chomp
+          if num.match?(/\D/)  
+            puts "Please enter a number.".light_red
+            valid_selection(arr)
+          end
+           num = num.to_i - 1
+            if  num >= arr.length || num <= -2
+               puts "Sorry, that is not a valid selection. Please try again.".light_red 
+              else
+              return num
+          end
+    end
   end
-  end
-  
-end
 
 
 def results(state, activity)
- # binding.pry
   arr = []
 
   state.parks.each do |park|
