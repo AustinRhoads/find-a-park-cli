@@ -23,15 +23,17 @@ GEM
       ruby-progressbar (~> 1.4)
     hashie (4.1.0)
     method_source (1.0.0)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.8.0)
     multipart-post (2.1.1)
-    nokogiri (1.10.4)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.13.4)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     octokit (2.7.2)
       sawyer (~> 0.5.2)
     pry (0.13.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    racc (1.6.0)
     rack (1.6.13)
     rack-protection (1.5.5)
       rack
@@ -74,7 +76,7 @@ DEPENDENCIES
   colorize
   fuubar (~> 2.0)
   hashie
-  nokogiri (= 1.10.4)
+  nokogiri (= 1.13.4)
   octokit (~> 2.0)
   pry
   rake (~> 10.0)
